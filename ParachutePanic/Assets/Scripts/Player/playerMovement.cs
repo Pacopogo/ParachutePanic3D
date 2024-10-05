@@ -1,0 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerInput))]
+public class playerMovement : MonoBehaviour
+{
+    [Header("Settings")]                            //these are the settings for the player
+    [SerializeField] private float wSpeed = 6;      //walking speed
+    [SerializeField] private float rSpeed = 6;      //rotation speed
+
+    private PlayerInput pInput;                     //the player Inputs
+    private Rigidbody rb;                           //the rigidbody component
+
+    private Vector2 newPlayerVec;                   //the new given horizontal vector for the player
+    private Vector2 rAxis;                          //the rotation axis for the player
+
+    [Header("Camera Component")]
+    [SerializeField] private Transform camTrans;
+
+    void Start()
+    {
+        pInput = GetComponent<PlayerInput>();
+        rb = GetComponent<Rigidbody>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        camTrans.eulerAngles = new Vector3(0, 0, 0);
+
+    }
+
+    void FixedUpdate()
+    {
+        playerMove();
+
+        playerCamera();
+
+    }
+
+    private void playerMove()
+    {
+        float playerForward = newPlayerVec.y * wSpeed * Time.fixedDeltaTime;
+        float playerRight = newPlayerVec.x * wSpeed * Time.fixedDeltaTime;
+
+        transform.Translate(Vector3.forward * playerForward);
+        transform.Translate(Vector3.right * playerRight);
+    }
+
+    private void playerCamera()
+    {
+        float lookX = rAxis.x * rSpeed * Time.fixedDeltaTime;
+        float lookY = -rAxis.y * rSpeed * Time.fixedDeltaTime;
+
+        transform.Rotate(0, lookX, 0);
+        camTrans.Rotate(lookY, 0, 0);
+    }
+
+    #region inputEvents
+    public void horizontalMove(InputAction.CallbackContext input) {
+
+        newPlayerVec = input.ReadValue<Vector2>();
+    }
+
+    public void playerlook(InputAction.CallbackContext input)
+    {
+        rAxis = input.ReadValue<Vector2>();
+    }
+
+    #endregion
+
+}
