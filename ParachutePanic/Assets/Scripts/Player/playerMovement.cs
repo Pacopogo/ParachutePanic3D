@@ -19,8 +19,11 @@ public class playerMovement : MonoBehaviour
     private Vector2 newPlayerVec;                   //the new given horizontal vector for the player
     private Vector2 rAxis;                          //the rotation axis for the player
 
-    [Header("Camera Component")]
-    [SerializeField] private Transform camTrans;
+    [Header("Interactable")]
+    [SerializeField] private GameObject camObj;
+    [SerializeField] private LayerMask interactLayer;
+    private RaycastHit hit;
+    private float maxDistance = 300f;
 
     void Start()
     {
@@ -28,7 +31,7 @@ public class playerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         Cursor.lockState = CursorLockMode.Locked;
-        camTrans.eulerAngles = new Vector3(0, 0, 0);
+        //camTrans.eulerAngles = new Vector3(0, 0, 0);
 
     }
 
@@ -52,10 +55,7 @@ public class playerMovement : MonoBehaviour
     private void playerCamera()
     {
         float lookX = rAxis.x * rSpeed * Time.fixedDeltaTime;
-        float lookY = -rAxis.y * rSpeed * Time.fixedDeltaTime;
-
         transform.Rotate(0, lookX, 0);
-        camTrans.Rotate(lookY, 0, 0);
     }
 
     #region inputEvents
@@ -69,6 +69,23 @@ public class playerMovement : MonoBehaviour
         rAxis = input.ReadValue<Vector2>();
     }
 
+    public void playerButton(InputAction.CallbackContext input) {
+
+        if (Physics.Raycast(camObj.transform.position, camObj.transform.forward, out hit, maxDistance, interactLayer))
+        {
+            if (hit.collider.GetComponent<PacoButton>())
+            {
+                if (input.canceled)
+                {
+                    hit.collider.GetComponent<PacoButton>().OnRelease();
+                }
+                else 
+                {
+                    hit.collider.GetComponent<PacoButton>().OnPressed();
+                }
+            }
+        }
+    }
     #endregion
 
 }
