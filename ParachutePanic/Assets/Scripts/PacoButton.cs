@@ -17,8 +17,10 @@ public class PacoButton : MonoBehaviour
 
     [SerializeField] private Material[] buttonMaterial = new Material[3];
     [SerializeField] private UnityEvent onClick;
-    
+    [SerializeField] private UnityEvent onRelease;
+
     private MeshRenderer buttonMesh;
+    private bool toggleActive;
 
     private void Start()
     {
@@ -58,6 +60,20 @@ public class PacoButton : MonoBehaviour
     {
         if (state == ButtonState.Off)
             return;
+
+        onRelease.Invoke();
         state = ButtonState.On;
+    }
+
+    public void toggleButton(bool active)
+    {
+        if (active)
+        {
+            state = ButtonState.On;
+        }
+        else
+        {
+            state = ButtonState.Off;
+        }
     }
 }

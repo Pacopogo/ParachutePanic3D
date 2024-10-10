@@ -13,9 +13,6 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private float wSpeed = 6;      //walking speed
     [SerializeField] private float rSpeed = 6;      //rotation speed
 
-    private PlayerInput pInput;                     //the player Inputs
-    private Rigidbody rb;                           //the rigidbody component
-
     private Vector2 newPlayerVec;                   //the new given horizontal vector for the player
     private Vector2 rAxis;                          //the rotation axis for the player
 
@@ -23,16 +20,11 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private GameObject camObj;
     [SerializeField] private LayerMask interactLayer;
     private RaycastHit hit;
-    private float maxDistance = 300f;
-
+    [SerializeField] private float maxDistance;
+    private PacoButton pacoButton;
     void Start()
     {
-        pInput = GetComponent<PlayerInput>();
-        rb = GetComponent<Rigidbody>();
-
         Cursor.lockState = CursorLockMode.Locked;
-        //camTrans.eulerAngles = new Vector3(0, 0, 0);
-
     }
 
     void FixedUpdate()
@@ -75,15 +67,22 @@ public class playerMovement : MonoBehaviour
         {
             if (hit.collider.GetComponent<PacoButton>())
             {
+                pacoButton = hit.collider.GetComponent<PacoButton>();
                 if (input.canceled)
                 {
-                    hit.collider.GetComponent<PacoButton>().OnRelease();
+                    pacoButton.OnRelease();
+                    pacoButton = null;
                 }
                 else 
                 {
-                    hit.collider.GetComponent<PacoButton>().OnPressed();
+                    pacoButton.OnPressed();
                 }
             }
+        }
+        if (input.canceled && pacoButton != null)
+        {
+            pacoButton.OnRelease();
+            pacoButton = null;
         }
     }
     #endregion
