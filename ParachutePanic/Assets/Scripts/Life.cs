@@ -15,7 +15,7 @@ public class Life : MonoBehaviour
     public void LoseLife()
     {
         currentLife--;
-        audioSoruce.Play();
+        //audioSoruce.Play();
         currentLife = Mathf.Clamp(currentLife, 0, lifeLights.Length);
 
         for (int i = 0; i < lifeLights.Length; i++)
