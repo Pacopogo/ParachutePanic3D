@@ -52,8 +52,8 @@ public class PacoButton : MonoBehaviour
         if (state == ButtonState.Off)
             return;
 
-        state = ButtonState.Pressed;
         onClick.Invoke();
+        state = ButtonState.Pressed;
     }
 
     public void OnRelease()

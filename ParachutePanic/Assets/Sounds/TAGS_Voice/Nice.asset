@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a2516495ec4b145814483940557677, type: 3}
+  m_Name: Nice
+  m_EditorClassIdentifier: 
+  line:
+  - {fileID: 8300000, guid: 057972def1f6d7b4284285fa04b84fb3, type: 3}
+  - {fileID: 8300000, guid: 34c913268f5d700419e00c68f3de755f, type: 3}
+  - {fileID: 8300000, guid: 382d233e02d2f814a9a68c91c7d8f96b, type: 3}
+  - {fileID: 8300000, guid: 56542696b92d21146840db3c514fb2bc, type: 3}
+  - {fileID: 8300000, guid: 518f3a3e71884884b979626d3221062b, type: 3}
+  - {fileID: 8300000, guid: 52eba92004b75f545b60f4f29396b36d, type: 3}
+  - {fileID: 8300000, guid: ed1528f2c0e2e1646bcf8bb9c030c33c, type: 3}

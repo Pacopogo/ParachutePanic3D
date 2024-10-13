@@ -9,6 +9,13 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private MeshRenderer screenMesh;
     [SerializeField] private Material[] screenMat = new Material[2];
 
+    [SerializeField] private AudioClip alertSound;
+    [SerializeField] private VoiceLines meanLines;
+    [SerializeField] private VoiceLines niceLines;
+    [SerializeField] private VoiceLines welcomeVoice;
+
+    [SerializeField] private Life life;
+
     private AudioSource audioSource;
 
     private int currentScore;
@@ -17,6 +24,9 @@ public class Scoreboard : MonoBehaviour
     {
         scoreText.text = ":)";
         audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = welcomeVoice.line[Random.Range(0, welcomeVoice.line.Length)];
+        audioSource.Play();
     }
 
     public void startAddScore()
@@ -34,8 +44,18 @@ public class Scoreboard : MonoBehaviour
     {
         screenMesh.material = screenMat[1];
         scoreText.text = ">:(";
+        audioSource.clip = alertSound;
         audioSource.Play();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(audioSource.clip.length);
+        if(life.currentLife > 0)
+        {
+            audioSource.clip = meanLines.line[Random.Range(0, meanLines.line.Length)];
+            audioSource.Play();
+            scoreText.text = "";
+            yield return new WaitForSeconds(audioSource.clip.length);
+            screenMesh.material = screenMat[0];
+            scoreText.text = currentScore.ToString();
+        }
 
         screenMesh.material = screenMat[0];
         scoreText.text = currentScore.ToString();
@@ -44,10 +64,11 @@ public class Scoreboard : MonoBehaviour
     }
     private IEnumerator addScore()
     {
-
+        screenMesh.material = screenMat[0];
         scoreText.text = ":)";
-
-        yield return new WaitForSeconds(0.5f);
+        audioSource.clip = niceLines.line[Random.Range(0, niceLines.line.Length)];
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
 
         scoreText.text = currentScore.ToString();
 

@@ -64,7 +64,7 @@ public class GameEventManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(10, 30));
 
         float rnd = Random.Range(0, 100);
-        if (rnd >= 50)
+        if (rnd >= 80)
         {
             audioSource.clip = clipList[1];
             audioSource.pitch = 1;

@@ -10,7 +10,7 @@ public class Life : MonoBehaviour
     private AudioSource audioSoruce;
     private SceneLoader sceneLoader;
 
-    [SerializeField]private int currentLife = 3;
+    public int currentLife = 3;
 
     private void Start()
     {
@@ -21,7 +21,6 @@ public class Life : MonoBehaviour
     public void LoseLife()
     {
         currentLife--;
-        //audioSoruce.Play();
         currentLife = Mathf.Clamp(currentLife, 0, lifeLights.Length);
 
         for (int i = 0; i < lifeLights.Length; i++)
