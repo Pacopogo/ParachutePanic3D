@@ -10,12 +10,7 @@ public class Kart : MonoBehaviour
     private float direction;
     private bool isMoving = false;
 
-    private AudioSource audioSource;
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
     private void FixedUpdate()
     {
         if (!isMoving)
@@ -36,11 +31,4 @@ public class Kart : MonoBehaviour
         return;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Trash"))
-            return;
-        audioSource.Play();
-
-    }
 }

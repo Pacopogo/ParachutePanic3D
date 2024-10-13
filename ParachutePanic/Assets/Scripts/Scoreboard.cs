@@ -21,9 +21,8 @@ public class Scoreboard : MonoBehaviour
 
     public void startAddScore()
     {
-        StartCoroutine(addScore());
         currentScore += 10;
-        scoreText.text = currentScore.ToString();
+        StartCoroutine(addScore());
     }
 
     public void startMissedTrash()
@@ -49,7 +48,9 @@ public class Scoreboard : MonoBehaviour
         scoreText.text = ":)";
 
         yield return new WaitForSeconds(0.5f);
-        
+
+        scoreText.text = currentScore.ToString();
+
         StopAllCoroutines();
     }
 }

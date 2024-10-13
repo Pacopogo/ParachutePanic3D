@@ -18,6 +18,7 @@ public class Trash : MonoBehaviour
         if (collision.gameObject.CompareTag("kart"))
         {
             scoreboard.startAddScore();
+            collision.gameObject.GetComponent<AudioSource>().Play();
             Object.Destroy(gameObject);
 
         }

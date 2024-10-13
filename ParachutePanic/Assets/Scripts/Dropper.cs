@@ -6,11 +6,19 @@ public class Dropper : MonoBehaviour
 {
     [SerializeField] private GameObject trashObj;
     [SerializeField] private Transform dropTrans;
+    [SerializeField] private ParticleSystem particle;
 
     [Header("Settings")]
     [SerializeField] private Vector2 moveRange;
     [SerializeField] private float speed = 2;
     private bool dir = true;
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void FixedUpdate()
     {
@@ -32,6 +40,8 @@ public class Dropper : MonoBehaviour
     public IEnumerator DropTrash(float timer)
     {
         yield return new WaitForSeconds(timer);
+        audioSource.Play();
+        particle.Play();
         Instantiate(trashObj, dropTrans.position, dropTrans.rotation);
     }
 }
