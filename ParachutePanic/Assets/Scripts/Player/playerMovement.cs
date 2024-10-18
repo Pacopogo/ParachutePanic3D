@@ -12,17 +12,18 @@ public class playerMovement : MonoBehaviour
 {
     [SerializeField] private playerSettings playerSettings;
 
-    [Header("Settings")]                                        //these are the settings for the player
-    [SerializeField] private float wSpeed = 6;                  //walking speed
-    private float rSpeed;                                       //rotation speed
+    [Header("Settings")]                                            //these are the settings for the player
+    [Tooltip("Player Movement speed")]
+    [SerializeField] private float wSpeed = 6;                      //walking speed
+    private float rSpeed;                                           //rotation speed
 
     [Header("Camera component")]
     [SerializeField] private CinemachineVirtualCamera cinneVirtual;
     [SerializeField] private GameObject camObj;
     private CinemachinePOV Pov;
 
-    private Vector2 newPlayerVec;                               //the new given horizontal vector for the player
-    private Vector2 rAxis;                                      //the rotation axis for the player
+    private Vector2 newPlayerVec;                                   //the new given horizontal vector for the player
+    private Vector2 rAxis;                                          //the rotation axis for the player
 
     [Header("Interactable")]
     [SerializeField] private LayerMask interactLayer;
