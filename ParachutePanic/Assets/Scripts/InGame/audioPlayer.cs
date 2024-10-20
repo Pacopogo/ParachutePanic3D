@@ -21,8 +21,9 @@ public class audioPlayer : MonoBehaviour
 
     private IEnumerator CallAudioClip(int i)
     {
-        yield return new WaitUntil(() => audioSource.isPlaying == false);
+        //yield return new WaitUntil(() => audioSource.isPlaying == false);
         audioSource.clip = voiceLines.line[i];
         audioSource.Play();
+        yield return new WaitForEndOfFrame();
     }
 }

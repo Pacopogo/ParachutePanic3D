@@ -19,7 +19,6 @@ public class Door : MonoBehaviour
 
     public void toggleDoor()
     {
-        Debug.Log("Pee");
         direction = -direction;
     }
 }
