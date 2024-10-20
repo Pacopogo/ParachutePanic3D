@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5097
+  m_VersionIndex: 5100
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3025
+  m_VersionIndex: 3028
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2606,7 +2606,7 @@ AudioSource:
   m_GameObject: {fileID: 3719414180162616300}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7183369193323601678, guid: df7f28f3364ac834ab9b30a938c3c7e7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5b1b90bde02ae6a459fac4edd0e7c0c3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2721,7 +2721,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3719414180291714370}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.86, y: 0, z: -25.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3183,7 +3183,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6187
+  m_VersionIndex: 6196
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

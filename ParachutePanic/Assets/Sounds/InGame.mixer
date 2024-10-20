@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InGame
+  m_Name: game
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 5a2a507c6b711ed4699eefc1ffbd4e1c
   m_Children: []
@@ -34,7 +34,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: f2cd25f2f1481a649a96b6db0f4c4f5b
+    name: game
+  - guid: 934f1438ae8ec3e4fad3e5eb41d177ba
+    name: MyExposedParam 1
   m_AudioMixerGroupViews:
   - guids:
     - ba1cf5e760394514dafd4789b2d04c13
