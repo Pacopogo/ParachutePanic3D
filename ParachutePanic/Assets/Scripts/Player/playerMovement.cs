@@ -26,6 +26,7 @@ public class playerMovement : MonoBehaviour
     private Vector2 rAxis;                                          //the rotation axis for the player
 
     [Header("Interactable")]
+    [SerializeField] private GameObject tooltipObj;
     [SerializeField] private LayerMask interactLayer;
     private RaycastHit hit;
     [SerializeField] private float maxDistance;
@@ -50,6 +51,7 @@ public class playerMovement : MonoBehaviour
 
         playerMove();
         playerCamera();
+        tooltipCheck();
 
     }
 
@@ -104,4 +106,15 @@ public class playerMovement : MonoBehaviour
     }
     #endregion
 
+    private void tooltipCheck()
+    {
+        if (Physics.Raycast(camObj.transform.position, camObj.transform.forward, out hit, maxDistance, interactLayer))
+        {
+            tooltipObj.SetActive(true);
+        }
+        else
+        {
+            tooltipObj.SetActive(false);
+        }
+    }
 }

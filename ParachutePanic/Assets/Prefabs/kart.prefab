@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100579650}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -1.88, y: 0.55, z: 2.1099997}
+  m_LocalPosition: {x: -1.5, y: 1.16, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 100579650}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 2
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -608,7 +608,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -661,7 +661,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 12
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -669,7 +669,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 2.68, y: 1, z: 7.25}
+    m_Scale: {x: 6.39, y: 1, z: 4.4}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1486,7 +1486,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 3
@@ -2684,7 +2684,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2.26
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2850,7 +2850,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.54
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3612,7 +3612,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -9713,8 +9713,8 @@ Transform:
   m_GameObject: {fileID: 2146637318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8805, y: 0.83, z: 1.8162}
-  m_LocalScale: {x: 3.799, y: 0.45879, z: 2.2921}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.36, y: 0.4057737, z: 2.0272322}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9043632561695292602}
   m_RootOrder: 0
@@ -10401,7 +10401,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 952
+  m_VersionIndex: 955
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
