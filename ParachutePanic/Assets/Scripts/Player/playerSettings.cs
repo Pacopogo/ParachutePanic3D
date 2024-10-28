@@ -6,4 +6,5 @@ using UnityEngine;
 public class playerSettings : ScriptableObject
 {
     public float mouseSensitivity;
+    public float audioVolume;
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a2516495ec4b145814483940557677, type: 3}
+  m_Name: EndScene
+  m_EditorClassIdentifier: 
+  line:
+  - {fileID: 8300000, guid: 73cd8b70b58aadd4c8398d9a917c12ae, type: 3}
+  - {fileID: 8300000, guid: 31ccc612a32ef1b42a26ee974b82b9d3, type: 3}
+  - {fileID: 8300000, guid: 3c34139e256a3a74d83b103e30a0d4de, type: 3}

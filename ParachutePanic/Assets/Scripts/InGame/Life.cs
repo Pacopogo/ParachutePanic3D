@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameEventManager gameMaster;
     [SerializeField] private GameObject[] lifeLights;
     [SerializeField] private Material[] materials;
     private MeshRenderer currentMesh;
     private AudioSource audioSoruce;
     private SceneLoader sceneLoader;
+
+    private GameObject[] allTrash;
 
     public int currentLife = 3;
 
@@ -16,6 +20,11 @@ public class Life : MonoBehaviour
     {
         audioSoruce = GetComponent<AudioSource>();
         sceneLoader = GetComponent<SceneLoader>();
+
+        if (gameMaster == null)
+        {
+            gameMaster = FindObjectOfType<GameEventManager>();
+        }
     }
 
     public void LoseLife()
@@ -46,7 +55,9 @@ public class Life : MonoBehaviour
     private IEnumerator YouDied()
     {
         yield return new WaitForSeconds(1);
+        gameMaster.endGame();
         audioSoruce.Play();
+        gameOverUI.SetActive(true);
         yield return new WaitForSeconds(audioSoruce.clip.length);
         sceneLoader.LoadSceneIndex(0);
     }

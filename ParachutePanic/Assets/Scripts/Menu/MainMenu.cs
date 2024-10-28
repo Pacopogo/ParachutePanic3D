@@ -16,18 +16,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider sensSlider;
     [SerializeField] private TMP_Text mouseSensText;
 
-    [Header("Audio")]
-    [SerializeField] private Slider audioSlide;
-    [SerializeField]private AudioMixer audioMixer;
-    [SerializeField] private TMP_Text audioText;
-
-
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        sceneLoader = GetComponent<SceneLoader>();
-        sensSlider.value = playerSettings.mouseSensitivity;
-        changeGlobalAudio();
+        Time.timeScale      = 1;
+        Cursor.lockState    = CursorLockMode.None;
+        sceneLoader         = GetComponent<SceneLoader>();
+        sensSlider.value    = playerSettings.mouseSensitivity;
     }
 
     public void PlayGame()
@@ -46,12 +40,6 @@ public class MainMenu : MonoBehaviour
     {
         playerSettings.mouseSensitivity = sensSlider.value;
         mouseSensText.text = sensSlider.value.ToString("f1");
-    }
-
-    public void changeGlobalAudio()
-    {
-        audioMixer.SetFloat("game", audioSlide.value);
-        audioText.text = (audioSlide.value + 80).ToString("f0") + "%";
     }
 
     public void ExitGame()

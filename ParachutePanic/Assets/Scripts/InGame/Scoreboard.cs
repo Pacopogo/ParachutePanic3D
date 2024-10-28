@@ -18,12 +18,15 @@ public class Scoreboard : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private SceneLoader sceneLoader;
+
     private int currentScore;
 
     private void Start()
     {
         scoreText.text = ":)";
         audioSource = GetComponent<AudioSource>();
+        sceneLoader = GetComponent<SceneLoader>();
 
         audioSource.clip = welcomeVoice.line[Random.Range(0, welcomeVoice.line.Length)];
         audioSource.Play();
@@ -71,6 +74,9 @@ public class Scoreboard : MonoBehaviour
         yield return new WaitForSeconds(audioSource.clip.length);
 
         scoreText.text = currentScore.ToString();
+
+        if (currentScore >= 200)
+            sceneLoader.LoadSceneIndex(3);
 
         StopAllCoroutines();
     }

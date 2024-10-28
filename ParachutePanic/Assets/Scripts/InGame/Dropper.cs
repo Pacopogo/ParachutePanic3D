@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
+    [SerializeField] private GameEventManager gameMaster;
     [SerializeField] private GameObject trashObj;
     [SerializeField] private Transform dropTrans;
     [SerializeField] private ParticleSystem particle;
@@ -18,6 +19,11 @@ public class Dropper : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        if (gameMaster == null)
+        {
+            gameMaster = FindObjectOfType<GameEventManager>();
+        }
     }
 
     private void FixedUpdate()
@@ -39,9 +45,17 @@ public class Dropper : MonoBehaviour
 
     public IEnumerator DropTrash(float timer)
     {
-        yield return new WaitForSeconds(timer);
-        audioSource.Play();
-        particle.Play();
-        Instantiate(trashObj, dropTrans.position, dropTrans.rotation);
+        if (gameMaster.trashObj.Count < 1)
+        {
+            yield return new WaitForSeconds(timer);
+            audioSource.Play();
+            particle.Play();
+            GameObject trash = Instantiate(trashObj, dropTrans.position, dropTrans.rotation);
+            gameMaster.trashObj.Add(trash);
+        }
+        else
+        {
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

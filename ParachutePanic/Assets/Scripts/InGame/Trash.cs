@@ -7,10 +7,17 @@ public class Trash : MonoBehaviour
     [SerializeField] private Life life;
     [SerializeField] private Scoreboard scoreboard;
 
+    private GameEventManager gameMaster;
+
     private void Start()
     {
-        life = Object.FindObjectOfType<Life>();
-        scoreboard = Object.FindObjectOfType<Scoreboard>();
+        if (gameMaster == null)
+        {
+            gameMaster = FindObjectOfType<GameEventManager>();
+        }
+
+        life        = GameObject.FindObjectOfType<Life>();
+        scoreboard  = GameObject.FindObjectOfType<Scoreboard>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -20,7 +27,6 @@ public class Trash : MonoBehaviour
             scoreboard.startAddScore();
             collision.gameObject.GetComponent<AudioSource>().Play();
             Object.Destroy(gameObject);
-
         }
         else if(collision.gameObject.CompareTag("Ground"))
         {

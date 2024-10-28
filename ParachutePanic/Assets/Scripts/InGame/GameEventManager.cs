@@ -11,17 +11,41 @@ public class GameEventManager : MonoBehaviour
     [SerializeField] private AudioClip[] clipList;
     private AudioSource audioSource;
 
+    public List<GameObject> trashObj;
+    private bool isPlaying;
+
     private void Start()
     {
+        isPlaying = true;
         audioSource = GetComponent<AudioSource>();
 
         CallDropper(); 
         StartCoroutine(RandomButton(15));
         callRandomKartDisable();
     }
+    
+    public void endGame()
+    {
+        isPlaying = false;
+        return;
+    }
+    private void FixedUpdate()
+    {
+        clearTrashList();
+        if (isPlaying)
+            return;
+
+        for (int i = 0; i < trashObj.Count; i++)
+        {
+            Destroy(trashObj[i]);
+        }
+    }
 
     private void CallDropper()
     {
+        if (!isPlaying)
+            return;
+
         Dropper dorpper = dropperList[Random.Range(0, dropperList.Length)];
         dorpper.StartCoroutine(dorpper.DropTrash(Random.Range(5, 30)));
         StartCoroutine(manageDrops());
@@ -29,11 +53,25 @@ public class GameEventManager : MonoBehaviour
 
     private IEnumerator manageDrops()
     {
-        yield return new WaitForSeconds(Random.Range(10,15));
+        //clearTrashList();
+        yield return new WaitForSeconds(Random.Range(10, 15));
         CallDropper();
         StopCoroutine(manageDrops());
     }
 
+    public void clearTrashList()
+    {
+        if (trashObj.Count > 0)
+        {
+            for (int i = trashObj.Count - 1; i >= 0; i--)
+            {
+                if (trashObj[i] == null)
+                {
+                    trashObj.Remove(trashObj[i]);
+                }
+            }
+        }
+    }
     public void toggleRandomButton()
     {
         StartCoroutine(RandomButton(0));
