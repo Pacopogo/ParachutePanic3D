@@ -16,7 +16,7 @@ public class AudioSettings : MonoBehaviour
 
     private void Start()
     {
-        audioSlide.value = playerSettings.audioVolume;
+        //audioSlide.value = playerSettings.audioVolume;
         changeGlobalAudio();
     }
 

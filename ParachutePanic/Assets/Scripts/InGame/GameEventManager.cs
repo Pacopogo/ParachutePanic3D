@@ -47,14 +47,14 @@ public class GameEventManager : MonoBehaviour
             return;
 
         Dropper dorpper = dropperList[Random.Range(0, dropperList.Length)];
-        dorpper.StartCoroutine(dorpper.DropTrash(Random.Range(5, 30)));
+        dorpper.StartCoroutine(dorpper.DropTrash(Random.Range(1, 10)));
         StartCoroutine(manageDrops());
     }
 
     private IEnumerator manageDrops()
     {
         //clearTrashList();
-        yield return new WaitForSeconds(Random.Range(10, 15));
+        yield return new WaitForSeconds(Random.Range(5, 15));
         CallDropper();
         StopCoroutine(manageDrops());
     }
@@ -85,6 +85,7 @@ public class GameEventManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.3f);
             buttonList[Random.Range(0, buttonList.Length)].toggleButton(false);
+            
             audioSource.clip = clipList[0];
             audioSource.pitch = 2;
             audioSource.Play();
@@ -99,7 +100,7 @@ public class GameEventManager : MonoBehaviour
     }
     private IEnumerator RandomKartDisable()
     {
-        yield return new WaitForSeconds(Random.Range(10, 30));
+        yield return new WaitForSeconds(Random.Range(5, 25));
 
         float rnd = Random.Range(0, 100);
         if (rnd >= 80)
