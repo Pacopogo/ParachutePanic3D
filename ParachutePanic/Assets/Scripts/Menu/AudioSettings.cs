@@ -14,9 +14,12 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private TMP_Text audioText;
 
+    private void Awake()
+    {
+        audioSlide.value = playerSettings.audioVolume;
+    }
     private void Start()
     {
-        //audioSlide.value = playerSettings.audioVolume;
         changeGlobalAudio();
     }
 

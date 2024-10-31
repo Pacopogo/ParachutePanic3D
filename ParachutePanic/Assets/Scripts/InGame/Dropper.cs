@@ -16,6 +16,15 @@ public class Dropper : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        if (gameMaster == null)
+        {
+            gameMaster = FindObjectOfType<GameEventManager>();
+        }
+    }
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -43,11 +52,10 @@ public class Dropper : MonoBehaviour
         }
     }
 
-    public IEnumerator DropTrash(float timer)
+    public void DropTrash()
     {
-        if (gameMaster.trashObj.Count < 1)
+        if (gameMaster.trashObj.Count < gameMaster.MaxTrashAmount)
         {
-            yield return new WaitForSeconds(timer);
             audioSource.Play();
             particle.Play();
             GameObject trash = Instantiate(trashObj, dropTrans.position, dropTrans.rotation);
@@ -55,7 +63,7 @@ public class Dropper : MonoBehaviour
         }
         else
         {
-            yield return new WaitForEndOfFrame();
+            return;
         }
     }
 }

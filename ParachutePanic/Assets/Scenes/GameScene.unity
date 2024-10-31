@@ -7963,10 +7963,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a037a4ad584e94f9a52f34eb50ee42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxTrashAmount: 1
   dropperList:
   - {fileID: 593645080}
   - {fileID: 1493932155}
   - {fileID: 1666670434}
+  minDrop: 1
+  maxDrop: 1
+  trashObj: []
   buttonList:
   - {fileID: 365938271}
   - {fileID: 258164329}
@@ -7974,14 +7978,17 @@ MonoBehaviour:
   - {fileID: 1252024903}
   - {fileID: 1204440923}
   - {fileID: 691425966}
+  minButton: 30
+  maxButton: 60
   kartList:
   - {fileID: 112654037}
   - {fileID: 1181397267}
   - {fileID: 1570740467}
+  minKart: 5
+  maxKart: 25
   clipList:
   - {fileID: 8300000, guid: 5b1b90bde02ae6a459fac4edd0e7c0c3, type: 3}
   - {fileID: 8300000, guid: ddcd91924f8f8c442afc0a5531db8b2d, type: 3}
-  trashObj: []
 --- !u!82 &440094328
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11486,7 +11493,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh224364
+  m_Name: pb_Mesh79436
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

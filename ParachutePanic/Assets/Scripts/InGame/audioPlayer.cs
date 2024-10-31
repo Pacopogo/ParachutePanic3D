@@ -7,8 +7,8 @@ using UnityEngine;
 public class audioPlayer : MonoBehaviour
 {
     [Header("Voice Lines")]
-    [SerializeField] private VoiceLines voiceLines;
-    AudioSource audioSource;
+    [SerializeField] private VoiceLines voiceLines;             //list of voice lines or audio bites
+    AudioSource audioSource;                                    //the audio player for the lines
 
     [Header("Background Audio")]
     [SerializeField] private AudioSource BackgroundPlayer;
@@ -28,7 +28,6 @@ public class audioPlayer : MonoBehaviour
 
     private IEnumerator CallAudioClip(int i)
     {
-        //yield return new WaitUntil(() => audioSource.isPlaying == false);
         audioSource.clip = voiceLines.line[i];
         audioSource.Play();
         yield return new WaitForEndOfFrame();
