@@ -8,8 +8,9 @@ using UnityEngine.Events;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject pauseOBJ;
-    private bool isPaused = false;
+
+    [SerializeField] private GameObject pauseOBJ;   //The Object I toggle for the pause menu
+    private bool isPaused = false;                  //Pause toggle check
 
     public void onPause(InputAction.CallbackContext input)
     {
@@ -19,17 +20,18 @@ public class PauseMenu : MonoBehaviour
         callPause();
     }
 
+    //the function to toggle between paused and unPaused
     public void callPause()
     {
         isPaused = !isPaused;
 
-        if (isPaused)
+        if (isPaused)                                   //Paused
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             pauseOBJ.SetActive(true);
         }
-        else
+        else                                           //UnPaused
         {
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;

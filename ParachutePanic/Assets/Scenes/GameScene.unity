@@ -7968,8 +7968,8 @@ MonoBehaviour:
   - {fileID: 593645080}
   - {fileID: 1493932155}
   - {fileID: 1666670434}
-  minDrop: 1
-  maxDrop: 1
+  minDrop: 2
+  maxDrop: 3
   trashObj: []
   buttonList:
   - {fileID: 365938271}
