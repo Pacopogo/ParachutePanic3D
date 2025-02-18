@@ -21,14 +21,15 @@ public class Kart : MonoBehaviour
         float newXpos = transform.position.x + direction * speed * Time.fixedDeltaTime;
         newXpos = Mathf.Clamp(newXpos, MoveRange.x, MoveRange.y);
         transform.position = new Vector3(newXpos, transform.position.y, transform.position.z);
-        
+
     }
     public void MoveKart(float dir)
     {
+        Debug.Log(dir + " is the current dir");
         direction = dir;
         return;
     }
-    public void toggleKart(bool move) 
+    public void toggleKart(bool move)
     {
         isMoving = move;
         return;

@@ -13,12 +13,13 @@ public class OnCollisionEvent : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag(objTag))
             return;
-        OnEnter.Invoke();
+        OnEnter?.Invoke();
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (!collision.gameObject.CompareTag(objTag))
             return;
-        OnExit.Invoke();
+        OnExit?.Invoke();
     }
 }
