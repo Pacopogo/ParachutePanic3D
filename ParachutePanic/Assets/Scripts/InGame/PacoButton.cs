@@ -53,7 +53,7 @@ public class PacoButton : MonoBehaviour
         if (state == ButtonState.Off)
             return;
 
-        onClick.Invoke();
+        onClick?.Invoke();
         state = ButtonState.Pressed;
     }
 
@@ -63,7 +63,7 @@ public class PacoButton : MonoBehaviour
         if (state == ButtonState.Off)
             return;
 
-        onRelease.Invoke();
+        onRelease?.Invoke();
         state = ButtonState.On;
     }
 
