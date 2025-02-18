@@ -11,8 +11,8 @@ public class audioPlayer : MonoBehaviour
     AudioSource audioSource;                                    //the audio player for the lines
 
     [Header("Background Audio")]
-    [SerializeField] private AudioSource BackgroundPlayer;
-    private bool isBGplaying;
+    [SerializeField] private AudioSource BackgroundPlayer;      //Background music component
+    private bool isBGplaying;                                   //The toggle if it is allowed to play
 
     private void Start()
     {
@@ -21,11 +21,13 @@ public class audioPlayer : MonoBehaviour
         isBGplaying = BackgroundPlayer.isPlaying;
     }
 
+    //Call Voice line and play it
     public void playLine(int index)
     {
         StartCoroutine(CallAudioClip(index));
     }
 
+    //It is IEnumerator for future expention so it will wait until its done talked until the next line
     private IEnumerator CallAudioClip(int i)
     {
         audioSource.clip = voiceLines.line[i];
@@ -33,6 +35,7 @@ public class audioPlayer : MonoBehaviour
         yield return new WaitForEndOfFrame();
     }
 
+    //Function to Pause the background during the intro cutscene when terms and services are asked
     public void pauseBackgroundMusic()
     {
         if (isBGplaying)

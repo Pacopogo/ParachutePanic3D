@@ -12,8 +12,6 @@ public class Life : MonoBehaviour
     private AudioSource audioSoruce;
     private SceneLoader sceneLoader;
 
-    private GameObject[] allTrash;
-
     public int currentLife = 3;
 
     private void Start()
@@ -27,6 +25,7 @@ public class Life : MonoBehaviour
         }
     }
 
+    //function to remove the lifes between the max amount and 0
     public void LoseLife()
     {
         currentLife--;
@@ -34,6 +33,7 @@ public class Life : MonoBehaviour
 
         for (int i = 0; i < lifeLights.Length; i++)
         {
+            //when lost a life change material to read
             currentMesh = lifeLights[i].GetComponent<MeshRenderer>();
             if (currentLife <= i)
             {
@@ -46,12 +46,13 @@ public class Life : MonoBehaviour
             }
         }
 
+        //when life hit zero you die
         if (currentLife <= 0)
             StartCoroutine(YouDied());
 
     }
 
-
+    //function to call all final functions to show you are dead
     private IEnumerator YouDied()
     {
         yield return new WaitForSeconds(1);

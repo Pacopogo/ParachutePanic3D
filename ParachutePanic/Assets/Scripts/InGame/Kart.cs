@@ -15,9 +15,11 @@ public class Kart : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //check if it is broken or not and allowed to move
         if (!isMoving || !isOn)
             return;
 
+        //move with given direction
         float newXpos = transform.position.x + direction * speed * Time.fixedDeltaTime;
         newXpos = Mathf.Clamp(newXpos, MoveRange.x, MoveRange.y);
         transform.position = new Vector3(newXpos, transform.position.y, transform.position.z);
@@ -35,6 +37,7 @@ public class Kart : MonoBehaviour
         return;
     }
 
+    //the function to break the kart with appropriate particles
     public void toggleActiveKart(bool active)
     {
         isOn = active;

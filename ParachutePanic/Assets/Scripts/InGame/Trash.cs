@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
-    [SerializeField] private Life life;
-    [SerializeField] private Scoreboard scoreboard;
-
-    private GameEventManager gameMaster;
+    private Life life;                      //Life logic script
+    private Scoreboard scoreboard;          //Scoreboard logic script
+    private GameEventManager gameMaster;    //GameMaster logic script
 
     private void Start()
     {
+        //Setup for the trash
         if (gameMaster == null)
         {
             gameMaster = FindObjectOfType<GameEventManager>();
@@ -22,6 +22,7 @@ public class Trash : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //when hit the kart add score and when hit the ground Lose a life
         if (collision.gameObject.CompareTag("kart"))
         {
             scoreboard.startAddScore();
