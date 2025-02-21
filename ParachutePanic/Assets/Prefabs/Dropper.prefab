@@ -5004,11 +5004,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96810e772ab9efe48a27b3bfb74b03c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMaster: {fileID: 0}
   trashObj: {fileID: 4580479002144963226, guid: 3dce68190432ee34bb1bb5133d126054, type: 3}
   dropTrans: {fileID: 1115498412961843835}
   particle: {fileID: 1542441041}
   moveRange: {x: -2, y: 15}
   speed: 2
+  audioSource: {fileID: 7530483188899247817}
 --- !u!82 &7530483188899247817
 AudioSource:
   m_ObjectHideFlags: 0

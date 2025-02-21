@@ -27,7 +27,6 @@ public class Kart : MonoBehaviour
     }
     public void MoveKart(float dir)
     {
-        Debug.Log(dir + " is the current dir");
         direction = dir;
         return;
     }

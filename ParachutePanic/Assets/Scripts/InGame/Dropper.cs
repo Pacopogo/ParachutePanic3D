@@ -14,17 +14,7 @@ public class Dropper : MonoBehaviour
     [SerializeField] private float speed = 2;                   //The movement Speed
     private bool dir = true;                                    //What direction they move
 
-    private AudioSource audioSource;                            //Audio component
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-
-        if (gameMaster == null)
-        {
-            gameMaster = FindObjectOfType<GameEventManager>();
-        }
-    }
+    [SerializeField] private AudioSource audioSource;
 
     private void FixedUpdate()
     {
@@ -49,21 +39,24 @@ public class Dropper : MonoBehaviour
         }
     }
 
-    //Droping trash function with a extra safe guard to prevent the max amount of trash to drop
     public void DropTrash()
     {
-        if (gameMaster.trashObj.Count < gameMaster.MaxTrashAmount)
-        {
-            audioSource.Play();
-            particle.Play();
+        audioSource.Play();
+        particle.Play();
 
-            //Make the trash and add it to the trash list to limit the amount that can be dropped
-            GameObject trash = Instantiate(trashObj, dropTrans.position, dropTrans.rotation);
-            gameMaster.trashObj.Add(trash);
-        }
-        else
+        //Make the trash and add it to the trash list to limit the amount that can be dropped
+        GameObject trash = Objectpool.Instance.PooledObject();
+
+        if (trash == null)
         {
-            return;
+            Objectpool.Instance.AddPool(1);
+            trash = Objectpool.Instance.PooledObject();
         }
+
+        trash.transform.position = dropTrans.transform.position;
+        trash.transform.rotation = dropTrans.transform.rotation;
+
+        trash.SetActive(true);
+
     }
 }

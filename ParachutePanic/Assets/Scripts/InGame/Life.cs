@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
+    [SerializeField]private bool godMode = false;
+
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameEventManager gameMaster;
     [SerializeField] private GameObject[] lifeLights;
@@ -28,6 +30,9 @@ public class Life : MonoBehaviour
     //function to remove the lifes between the max amount and 0
     public void LoseLife()
     {
+        if (godMode)
+            return;
+
         currentLife--;
         currentLife = Mathf.Clamp(currentLife, 0, lifeLights.Length);
 
@@ -56,7 +61,7 @@ public class Life : MonoBehaviour
     private IEnumerator YouDied()
     {
         yield return new WaitForSeconds(1);
-        gameMaster.endGame();
+        gameMaster.EndGame();
         audioSoruce.Play();
         gameOverUI.SetActive(true);
         yield return new WaitForSeconds(audioSoruce.clip.length);

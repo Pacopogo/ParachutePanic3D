@@ -11,13 +11,9 @@ public class Trash : MonoBehaviour
     private void Start()
     {
         //Setup for the trash
-        if (gameMaster == null)
-        {
-            gameMaster = FindObjectOfType<GameEventManager>();
-        }
-
-        life        = GameObject.FindObjectOfType<Life>();
-        scoreboard  = GameObject.FindObjectOfType<Scoreboard>();
+        this.gameMaster     = FindObjectOfType<GameEventManager>();
+        this.life           = FindObjectOfType<Life>();
+        this.scoreboard     = FindObjectOfType<Scoreboard>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,15 +21,21 @@ public class Trash : MonoBehaviour
         //when hit the kart add score and when hit the ground Lose a life
         if (collision.gameObject.CompareTag("kart"))
         {
-            scoreboard.startAddScore();
+            this.scoreboard.startAddScore();
+            this.gameMaster.SetAmountDropped(-1);
+           
             collision.gameObject.GetComponent<AudioSource>().Play();
-            Object.Destroy(gameObject);
+
+            this.gameObject.SetActive(false);
         }
         else if(collision.gameObject.CompareTag("Ground"))
         {
-            life.LoseLife();
-            scoreboard.startMissedTrash();
-            Object.Destroy(gameObject);
+            this.life.LoseLife();
+            this.gameMaster.SetAmountDropped(-1);
+
+            this.scoreboard.startMissedTrash();
+            
+            this.gameObject.SetActive(false);
         }
 
     }
