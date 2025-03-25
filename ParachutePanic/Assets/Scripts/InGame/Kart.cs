@@ -11,7 +11,7 @@ public class Kart : MonoBehaviour
     private bool isMoving = false;
 
     [SerializeField] private ParticleSystem particle;
-    private bool isOn = true;
+    public bool isOn = true;
 
     private void FixedUpdate()
     {

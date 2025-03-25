@@ -5,7 +5,6 @@ using UnityEngine;
 public class Dropper : MonoBehaviour
 {
     [SerializeField] private GameEventManager gameMaster;       //Game master component
-    [SerializeField] private GameObject trashObj;               //Trash Prefab to be dropped
     [SerializeField] private Transform dropTrans;               //The Pivot point to drop the trash from
     [SerializeField] private ParticleSystem particle;           //The Unique particles for dropping the trash
 

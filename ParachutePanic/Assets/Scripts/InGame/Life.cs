@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    [SerializeField]private bool godMode = false;
+    [SerializeField] private bool godMode = false;
 
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameEventManager gameMaster;

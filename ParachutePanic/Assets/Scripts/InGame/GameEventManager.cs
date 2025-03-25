@@ -37,9 +37,9 @@ public class GameEventManager : MonoBehaviour
 
     private void Start()
     {
-        this.isPlaying = true;
+        isPlaying = true;
 
-        this.amountDropped = 0;
+        amountDropped = 0;
 
         //Initial call for all the event
         CallDropper();
@@ -75,10 +75,10 @@ public class GameEventManager : MonoBehaviour
     private IEnumerator manageDrops()
     {
         //waiting random amount of seconds between te min and max range
-        yield return new WaitForSeconds(Random.Range(this.minDrop, this.maxDrop));
+        yield return new WaitForSeconds(Random.Range(minDrop, maxDrop));
 
         //drop from random dropper
-        if (this.amountDropped < maxDrops)
+        if (amountDropped < maxDrops)
         {
             GetRandomDropper().DropTrash();
             SetAmountDropped(1);
@@ -90,16 +90,16 @@ public class GameEventManager : MonoBehaviour
     }
     private Dropper GetRandomDropper()
     {
-        Dropper dorpper = this.dropperList[Random.Range(0, this.dropperList.Length)];
+        Dropper dorpper = dropperList[Random.Range(0, dropperList.Length)];
         return dorpper;
     }
 
     public void SetAmountDropped(int amount)
     {
-        this.amountDropped += amount;
+        amountDropped += amount;
 
-        if (this.amountDropped < 0)
-            this.amountDropped = 0;
+        if (amountDropped < 0)
+            amountDropped = 0;
     }
 
     #endregion
@@ -116,7 +116,7 @@ public class GameEventManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(minButton, maxButton));
 
         //pick between either 2 or all buttons to disable
-        for (int i = 0; i < Random.Range(2, this.buttonList.Length); i++)
+        for (int i = 0; i < Random.Range(2, buttonList.Length); i++)
         {
             //0.3 second interval between each disabled button
             yield return new WaitForSeconds(0.3f);
@@ -132,14 +132,14 @@ public class GameEventManager : MonoBehaviour
 
     private void PlayButtonSound()
     {
-        this.audioSource.clip = clipList[0];
-        this.audioSource.pitch = 2;
-        this.audioSource.Play();
+        audioSource.clip = clipList[0];
+        audioSource.pitch = 2;
+        audioSource.Play();
     }
 
     private PacoButton GetRandomButton()
     {
-        PacoButton button = this.buttonList[Random.Range(0, this.buttonList.Length)];
+        PacoButton button = buttonList[Random.Range(0, buttonList.Length)];
         return button;
     }
     #endregion
@@ -170,14 +170,14 @@ public class GameEventManager : MonoBehaviour
 
     private void PlayKartSound()
     {
-        this.audioSource.pitch = 1;
-        this.audioSource.clip = clipList[1];
-        this.audioSource.Play();
+        audioSource.pitch = 1;
+        audioSource.clip = clipList[1];
+        audioSource.Play();
     }
 
     private Kart GetRandomKart()
     {
-        Kart rmdKart = this.kartList[Random.Range(0, this.kartList.Length)];
+        Kart rmdKart = kartList[Random.Range(0, kartList.Length)];
         return rmdKart;
     }
     #endregion
