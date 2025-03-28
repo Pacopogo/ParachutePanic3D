@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EMPTrash : MonoBehaviour
 {
-    public void onEmp() => KartManager.instance.BreakRandomKart();   
+    public void onEmp() => ButtonManager.instance.DisableRandomButton(); 
 }

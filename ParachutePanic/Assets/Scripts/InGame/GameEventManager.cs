@@ -6,14 +6,11 @@ using UnityEngine.Rendering;
 //The Game event manager is the script that keeps track of all random events
 //these are timed based random events
 
-//Note for future pablo: Ask Peers and/or teachers how to refactor this so there aren't Coroutines 
-
 public class GameEventManager : MonoBehaviour
 {
 
     [Header("Drop Settings")]
     [SerializeField] private int maxDrops = 2;                  //Amount of Trash that is allowed to drop
-    [SerializeField] private DropperManager dropperManager;
     [SerializeField] private float minDrop;                     //Minimum seconds between drops
     [SerializeField] private float maxDrop;                     //Maximum seconds between drops
 
@@ -115,6 +112,7 @@ public class GameEventManager : MonoBehaviour
         currentButtonTime   -= 1 * Time.deltaTime;
         currentKartTime     -= 1 * Time.deltaTime;
     }
+
     //Set the game stop when the game is over
     //This is so all the other fucntions don't continue unnesaccerly
     public void EndGame()

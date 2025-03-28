@@ -3423,7 +3423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20df6a85423ef84d83b52853aee9ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 1
+  godMode: 0
   gameOverUI: {fileID: 1689694248}
   gameMaster: {fileID: 440094327}
   lifeLights:
@@ -8018,10 +8018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDrops: 2
-  dropperList:
-  - {fileID: 593645080}
-  - {fileID: 1493932155}
-  - {fileID: 1666670434}
   minDrop: 2
   maxDrop: 8
   minButton: 30
@@ -16990,7 +16986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edd19d979493c7498b4086326486c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRange: {x: -19.8, y: -22.64}
+  moveRange: {x: -22.5, y: -19.8}
   speed: 6
   direction: 1
 --- !u!1 &1144903522
@@ -39405,7 +39401,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31978
+  m_Name: pb_Mesh85178
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40946,6 +40942,10 @@ PrefabInstance:
     - target: {fileID: 6343185639626987869, guid: b6af3b44fc1d112409daa1310b60a1c7, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343185639897669704, guid: b6af3b44fc1d112409daa1310b60a1c7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6343185639897669706, guid: b6af3b44fc1d112409daa1310b60a1c7, type: 3}
       propertyPath: m_Name
