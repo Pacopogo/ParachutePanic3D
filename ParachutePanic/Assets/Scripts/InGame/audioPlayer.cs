@@ -11,14 +11,14 @@ public class audioPlayer : MonoBehaviour
     AudioSource audioSource;                                    //the audio player for the lines
 
     [Header("Background Audio")]
-    [SerializeField] private AudioSource BackgroundPlayer;      //Background music component
+    [SerializeField] private AudioSource backgroundPlayer;      //Background music component
     private bool isBGplaying;                                   //The toggle if it is allowed to play
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        isBGplaying = BackgroundPlayer.isPlaying;
+        isBGplaying = backgroundPlayer.isPlaying;
     }
 
     //Call Voice line and play it
@@ -40,11 +40,11 @@ public class audioPlayer : MonoBehaviour
     {
         if (isBGplaying)
         {
-            BackgroundPlayer.Pause();
+            backgroundPlayer.Pause();
             isBGplaying = false;
             return;
         }
-        BackgroundPlayer.UnPause();
+        backgroundPlayer.UnPause();
         isBGplaying = true;
 
     }

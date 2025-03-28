@@ -11,9 +11,10 @@ public class Objectpool : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int poolSize = 6;
-    [SerializeField] private GameObject objPrefab;
+    [SerializeField] private GameObject[] objPrefab;
 
     [HideInInspector] public List<GameObject> poolList = new List<GameObject>();
+    public GameObject[][] poolArrays;
 
     #region Singleton
     public static Objectpool Instance;
@@ -29,16 +30,19 @@ public class Objectpool : MonoBehaviour
     private void Start()
     {
         //Inizilalize the pool
-        this.AddPool(this.poolSize);
+        AddPool(poolSize);
     }
 
     public void AddPool(int amount)
     {
-        for (int i = 0; i < amount; i++)
+        for (int j = 0; j < objPrefab.Length; j++)
         {
-            GameObject obj = Instantiate(objPrefab);
-            obj.SetActive(false);
-            poolList.Add(obj);
+            for (int i = 0; i < amount; i++)
+            {
+                GameObject obj = Instantiate(objPrefab[j]);
+                obj.SetActive(false);
+                poolList.Add(obj);
+            }
         }
     }
 
@@ -54,9 +58,22 @@ public class Objectpool : MonoBehaviour
         return null;
     }
 
+    public GameObject GetSpesificPool()
+    {
+        for (int i = 0; i < poolList.Count; i++)
+        {
+            if (!poolList[i].activeInHierarchy)
+            {
+                return poolList[i];
+            }
+        }
+
+        return null;
+    }
+
     public void ClearObjects()
     {
-        for (int i = 0; i < this.poolList.Count; i++)
+        for (int i = 0; i < poolList.Count; i++)
         {
             poolList[i].SetActive(false);
         }

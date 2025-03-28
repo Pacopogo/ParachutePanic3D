@@ -7,7 +7,7 @@ public class Trash : MonoBehaviour
 {
     private Life life;                      //Life logic script
     private Scoreboard scoreboard;          //Scoreboard logic script
-    private GameEventManager gameMaster;    //GameMaster logic script
+    private GameEventManager gameManager;   //GameMaster logic script
 
     [SerializeField] private UnityEvent OnHitKart;
     [SerializeField] private UnityEvent OnHitGround;
@@ -15,7 +15,7 @@ public class Trash : MonoBehaviour
     private void Start()
     {
         //Setup for the trash
-        gameMaster = FindObjectOfType<GameEventManager>();
+        gameManager = FindObjectOfType<GameEventManager>();
         life = FindObjectOfType<Life>();
         scoreboard = FindObjectOfType<Scoreboard>();
     }
@@ -42,7 +42,7 @@ public class Trash : MonoBehaviour
     private void HitKart()
     {
         scoreboard.startAddScore();
-        gameMaster.SetAmountDropped(-1);
+        gameManager.SetAmountDropped(-1);
 
         gameObject.SetActive(false);
     }
@@ -50,7 +50,7 @@ public class Trash : MonoBehaviour
     private void HitGround()
     {
         life.LoseLife();
-        gameMaster.SetAmountDropped(-1);
+        gameManager.SetAmountDropped(-1);
 
         scoreboard.startMissedTrash();
 

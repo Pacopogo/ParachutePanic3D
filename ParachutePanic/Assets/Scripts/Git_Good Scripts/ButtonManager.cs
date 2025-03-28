@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private PacoButton[] Buttons;
+    public PacoButton[] Buttons;
     public static ButtonManager instance;
 
     private void Awake()
