@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //simple ObjectPool for the trash shoot
@@ -14,7 +15,6 @@ public class Objectpool : MonoBehaviour
     [SerializeField] private GameObject[] objPrefab;
 
     [HideInInspector] public List<GameObject> poolList = new List<GameObject>();
-    public GameObject[][] poolArrays;
 
     #region Singleton
     public static Objectpool Instance;
@@ -58,7 +58,34 @@ public class Objectpool : MonoBehaviour
         return null;
     }
 
-    public GameObject GetSpesificPool()
+    public GameObject GetSpesificPool(int index)
+    {
+        GameObject obj = null;
+        switch (index)
+        {
+            case 0:
+                Debug.Log("Any");
+                obj = GetAnyTrash();
+
+                break;
+
+            case 1:
+                Debug.Log("EMP");
+                obj = GetEMP();
+
+                break;
+
+            case 2:
+                Debug.Log("Bulk");
+                obj = GetBulk();
+
+                break;
+        }
+
+        return obj;
+
+    }
+    private GameObject GetAnyTrash()
     {
         for (int i = 0; i < poolList.Count; i++)
         {
@@ -70,6 +97,39 @@ public class Objectpool : MonoBehaviour
 
         return null;
     }
+    private GameObject GetEMP()
+    {
+        for (int i = 0; i < poolList.Count; i++)
+        {
+
+            if (!poolList[i].GetComponent<EMPTrash>())
+                continue;
+
+            if (!poolList[i].activeInHierarchy)
+            {
+                return poolList[i];
+            }
+        }
+
+        return null;
+    }
+    private GameObject GetBulk()
+    {
+        for (int i = 0; i < poolList.Count; i++)
+        {
+
+            if (!poolList[i].GetComponent<BulkyTrash>())
+                continue;
+
+            if (!poolList[i].activeInHierarchy)
+            {
+                return poolList[i];
+            }
+        }
+
+        return null;
+    }
+
 
     public void ClearObjects()
     {
