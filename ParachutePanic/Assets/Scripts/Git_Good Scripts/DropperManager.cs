@@ -9,11 +9,11 @@ public class DropperManager : MonoBehaviour
     [Header("Settings")]
     public float MaxDrops = 2;                      //max amount of drops at the same time
 
-    public static DropperManager Instance;
+    public static DropperManager instance;
 
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
 
     public void DropRandomTrash()

@@ -10,27 +10,26 @@ public class GameEventManager : MonoBehaviour
 {
 
     [Header("Drop Settings")]
-    [SerializeField] private int _maxDrops = 2;                         //Amount of Trash that is allowed to drop
-    [SerializeField] private float _minDrop = 2;                        //Minimum seconds between drops
-    [SerializeField] private float _maxDrop = 8;                        //Maximum seconds between drops
+    [SerializeField] private int _maxDrops = 2;
+    [SerializeField] private float _minDrop = 2;
+    [SerializeField] private float _maxDrop = 8;
 
     private int _amountDropped;
 
     [Header("Button Settings")]
-    [SerializeField] private float _minButton = 30;                     //Minimum seconds between them breaking
-    [SerializeField] private float _maxButton = 60;                     //Max seconds between them breaking
+    [SerializeField] private float _minButton = 30;
+    [SerializeField] private float _maxButton = 60;
     [SerializeField] private ButtonManager _buttonManager;
 
     [Header("Kart Settings")]
-    [SerializeField] private float _minKart = 5;                         //Minimum seconds between kart breaking
-    [SerializeField] private float _maxKart = 25;                        //Maxium seconds between kart breaking
+    [SerializeField] private float _minKart = 5;
+    [SerializeField] private float _maxKart = 25;
 
     [Header("Audio Settings")]
-    [SerializeField] private AudioClip[] _clipList;                      //Audio clips to play diffrent sound effects
-    [SerializeField] private AudioSource _audioSource;                   //Audio component to play the clips from
+    [SerializeField] private AudioClip[] _clipList;
+    [SerializeField] private AudioSource _audioSource;
 
-    private bool _isPlaying;                                             //Is the game playing
-
+    private bool _isPlaying;
 
     #region Getters & Setters
     
@@ -106,9 +105,9 @@ public class GameEventManager : MonoBehaviour
         _amountDropped = 0;
 
         //initial timers
-        _currentDropTime = 5;
-        _currentButtonTime = 25;
-        _currentKartTime = 15;
+        _currentDropTime    = 5;
+        _currentButtonTime  = 25;
+        _currentKartTime    = 15;
     }
 
     private void Update()
@@ -143,7 +142,7 @@ public class GameEventManager : MonoBehaviour
     {
         if (_amountDropped < _maxDrops)
         {
-            DropperManager.Instance.DropRandomTrash();
+            DropperManager.instance.DropRandomTrash();
             SetAmountDropped(1);
         }
     }
