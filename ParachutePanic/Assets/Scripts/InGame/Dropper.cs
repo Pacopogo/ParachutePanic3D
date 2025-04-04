@@ -46,12 +46,12 @@ public class Dropper : MonoBehaviour
         _particle.Play();
 
         //Make the trash and add it to the trash list to limit the amount that can be dropped
-        GameObject trash = Objectpool.Instance.GetSpesificPool(rnd);
+        GameObject trash = Objectpool.instance.GetSpesificPool(rnd);
 
         if (trash == null)
         {
-            Objectpool.Instance.AddPool(1);
-            trash = Objectpool.Instance.GetSpesificPool(rnd);
+            Objectpool.instance.AddPool(1);
+            trash = Objectpool.instance.GetSpesificPool(rnd);
         }
 
         trash.transform.position = _dropTrans.transform.position;

@@ -133,7 +133,7 @@ public class GameEventManager : MonoBehaviour
     //to clear the game of Trash objects
     public void ClearGame()
     {
-        Objectpool.Instance.ClearObjects();
+        Objectpool.instance.ClearObjects();
     }
 
     #region Dropper logic

@@ -18,12 +18,12 @@ public class Objectpool : MonoBehaviour
     [HideInInspector] public List<GameObject> PoolList = new List<GameObject>();
 
     #region Singleton
-    public static Objectpool Instance;
+    public static Objectpool instance;
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
     }
     #endregion
