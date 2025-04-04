@@ -7,14 +7,15 @@ using UnityEngine;
 //tutorial from Bendux Youtube "Introduction To Object Pooling In Unity"
 
 //Note: I added so the pool expands when it is out of inactive objects
+//Note: I also added varied objects to the pool
 public class Objectpool : MonoBehaviour
 {
 
     [Header("Settings")]
-    [SerializeField] private int poolSize = 6;
-    [SerializeField] private GameObject[] objPrefab;
+    [SerializeField] private int _poolSize = 6;
+    [SerializeField] private GameObject[] _objPrefab;
 
-    [HideInInspector] public List<GameObject> poolList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> PoolList = new List<GameObject>();
 
     #region Singleton
     public static Objectpool Instance;
@@ -30,29 +31,29 @@ public class Objectpool : MonoBehaviour
     private void Start()
     {
         //Inizilalize the pool
-        AddPool(poolSize);
+        AddPool(_poolSize);
     }
 
     public void AddPool(int amount)
     {
-        for (int j = 0; j < objPrefab.Length; j++)
+        for (int j = 0; j < _objPrefab.Length; j++)
         {
             for (int i = 0; i < amount; i++)
             {
-                GameObject obj = Instantiate(objPrefab[j]);
+                GameObject obj = Instantiate(_objPrefab[j]);
                 obj.SetActive(false);
-                poolList.Add(obj);
+                PoolList.Add(obj);
             }
         }
     }
 
     public GameObject PooledObject()
     {
-        for (int i = 0; i < poolList.Count; i++)
+        for (int i = 0; i < PoolList.Count; i++)
         {
-            if (!poolList[i].activeInHierarchy)
+            if (!PoolList[i].activeInHierarchy)
             {
-                return poolList[i];
+                return PoolList[i];
             }
         }
         return null;
@@ -87,11 +88,11 @@ public class Objectpool : MonoBehaviour
     }
     private GameObject GetAnyTrash()
     {
-        for (int i = 0; i < poolList.Count; i++)
+        for (int i = 0; i < PoolList.Count; i++)
         {
-            if (!poolList[i].activeInHierarchy)
+            if (!PoolList[i].activeInHierarchy)
             {
-                return poolList[i];
+                return PoolList[i];
             }
         }
 
@@ -99,15 +100,15 @@ public class Objectpool : MonoBehaviour
     }
     private GameObject GetEMP()
     {
-        for (int i = 0; i < poolList.Count; i++)
+        for (int i = 0; i < PoolList.Count; i++)
         {
 
-            if (!poolList[i].GetComponent<EMPTrash>())
+            if (!PoolList[i].GetComponent<EMPTrash>())
                 continue;
 
-            if (!poolList[i].activeInHierarchy)
+            if (!PoolList[i].activeInHierarchy)
             {
-                return poolList[i];
+                return PoolList[i];
             }
         }
 
@@ -115,15 +116,15 @@ public class Objectpool : MonoBehaviour
     }
     private GameObject GetBulk()
     {
-        for (int i = 0; i < poolList.Count; i++)
+        for (int i = 0; i < PoolList.Count; i++)
         {
 
-            if (!poolList[i].GetComponent<BulkyTrash>())
+            if (!PoolList[i].GetComponent<BulkyTrash>())
                 continue;
 
-            if (!poolList[i].activeInHierarchy)
+            if (!PoolList[i].activeInHierarchy)
             {
-                return poolList[i];
+                return PoolList[i];
             }
         }
 
@@ -133,9 +134,9 @@ public class Objectpool : MonoBehaviour
 
     public void ClearObjects()
     {
-        for (int i = 0; i < poolList.Count; i++)
+        for (int i = 0; i < PoolList.Count; i++)
         {
-            poolList[i].SetActive(false);
+            PoolList[i].SetActive(false);
         }
         return;
     }
