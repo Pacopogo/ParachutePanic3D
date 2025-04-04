@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KartManager : MonoBehaviour
 {
-    [SerializeField] private Kart[] karts;
+    [SerializeField] private Kart[] _karts;
 
     public static KartManager instance;
 
@@ -16,16 +16,16 @@ public class KartManager : MonoBehaviour
 
     public void BreakRandomKart()
     {
-        int rnd = Random.Range(0, karts.Length);
-        karts[rnd].toggleActiveKart(false);
+        int rnd = Random.Range(0, _karts.Length);
+        _karts[rnd].toggleActiveKart(false);
     }
-    public void BreakKartIndex(int index) => karts[index].toggleActiveKart(false);
+    public void BreakKartIndex(int index) => _karts[index].toggleActiveKart(false);
 
     public void RepairAllKarts()
     {
-        for (int i = 0; i < karts.Length; i++)
+        for (int i = 0; i < _karts.Length; i++)
         {
-            karts[i].toggleActiveKart(true);
+            _karts[i].toggleActiveKart(true);
         }
     }
 
