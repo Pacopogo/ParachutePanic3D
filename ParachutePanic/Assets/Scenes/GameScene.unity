@@ -7811,7 +7811,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh64866
+  m_Name: pb_Mesh117908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8023,8 +8023,8 @@ MonoBehaviour:
   _minButton: 30
   _maxButton: 60
   _buttonManager: {fileID: 440094330}
-  _minKart: 5
-  _maxKart: 25
+  _minKart: 15
+  _maxKart: 45
   _clipList:
   - {fileID: 8300000, guid: 5b1b90bde02ae6a459fac4edd0e7c0c3, type: 3}
   - {fileID: 8300000, guid: ddcd91924f8f8c442afc0a5531db8b2d, type: 3}
@@ -12188,7 +12188,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 39f382da13b5fc04d84ab730f2673bc7, type: 2}
   _onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132795831}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: ToggleDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onRelease:
     m_PersistentCalls:
       m_Calls: []

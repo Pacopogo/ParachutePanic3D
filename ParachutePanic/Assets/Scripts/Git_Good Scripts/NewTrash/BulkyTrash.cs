@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BulkyTrash : MonoBehaviour
 {
-    public void OnBulkyHit() => ButtonManager.instance.DisableRandomButton();
+    public void OnBulkyHit() => KartManager.instance.BreakRandomKart();
 }

@@ -22,7 +22,7 @@ public class audioPlayer : MonoBehaviour
     }
 
     //Call Voice line and play it
-    public void playLine(int index)
+    public void PlayLine(int index)
     {
         StartCoroutine(CallAudioClip(index));
     }
