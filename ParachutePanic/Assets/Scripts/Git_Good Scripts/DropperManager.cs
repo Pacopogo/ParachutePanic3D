@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DropperManager : MonoBehaviour
 {
-    [SerializeField] private Dropper[] droppers;
+    [SerializeField] private Dropper[] _droppers;
 
     [Header("Settings")]
-    public float maxDrops = 2;                      //max amount of drops at the same time
+    public float MaxDrops = 2;                      //max amount of drops at the same time
 
     public static DropperManager Instance;
 
@@ -18,8 +18,8 @@ public class DropperManager : MonoBehaviour
 
     public void DropRandomTrash()
     {
-        int rnd = Random.Range(0, droppers.Length);
+        int rnd = Random.Range(0, _droppers.Length);
 
-        droppers[rnd].DropTrash();
+        _droppers[rnd].DropTrash();
     }
 }
