@@ -58,7 +58,7 @@ public class Scoreboard : MonoBehaviour
 
     private IEnumerator missedTrash()
     {
-        if (_life.currentLife > 0)
+        if (_life.CurrentLife > 0)
         {
             //set the background to red and  play a alert clip
             _screenMesh.material = _screenMat[1];

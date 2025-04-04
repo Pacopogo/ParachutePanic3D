@@ -110,49 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488d6773ff427d84aa14084cd7e419c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objTag: Player
-  OnEnter:
+  _objTag: Trash
+  _onEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: toggleKart
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: MoveKart
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnExit:
+      m_Calls: []
+  _onExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: toggleKart
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &100579650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5076,49 +5040,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488d6773ff427d84aa14084cd7e419c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objTag: Player
-  OnEnter:
+  _objTag: Trash
+  _onEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: toggleKart
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: MoveKart
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -0.2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnExit:
+      m_Calls: []
+  _onExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9043632561695292604}
-        m_TargetAssemblyTypeName: Kart, Assembly-CSharp
-        m_MethodName: toggleKart
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1972455274
 GameObject:
   m_ObjectHideFlags: 0
@@ -10196,8 +10124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488d6773ff427d84aa14084cd7e419c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objTag: Trash
-  OnEnter:
+  _objTag: Trash
+  _onEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1972455277}
@@ -10212,7 +10140,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
+  _onExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &9043632561695292583
@@ -10709,7 +10637,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 982
+  m_VersionIndex: 1003
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10790,9 +10718,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c170d361fe8808478e95f87de0b80a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveRange: {x: -1, y: 15}
-  speed: 8
-  particle: {fileID: 100579653}
+  _moveRange: {x: -1, y: 15}
+  _speed: 6
+  _brokenParticles: {fileID: 100579653}
+  _isOn: 1
 --- !u!82 &112654038
 AudioSource:
   m_ObjectHideFlags: 0

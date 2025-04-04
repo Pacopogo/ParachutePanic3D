@@ -9,33 +9,34 @@ using UnityEngine.Events;
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] private GameObject pauseOBJ;   //The Object I toggle for the pause menu
-    private bool isPaused = false;                  //Pause toggle check
+    [SerializeField] private GameObject _pauseOBJ;
+    private bool _isPaused = false;
 
-    public void onPause(InputAction.CallbackContext input)
+    public void OnPause(InputAction.CallbackContext input)
     {
         if (!input.performed)
             return;
 
-        callPause();
+        CallPause();
     }
 
-    //the function to toggle between paused and unPaused
-    public void callPause()
+    public void CallPause()
     {
-        isPaused = !isPaused;
+        _isPaused = !_isPaused;
 
-        if (isPaused)                                   //Paused
+        if (_isPaused)                                   //Paused
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
-            pauseOBJ.SetActive(true);
+
+            _pauseOBJ.SetActive(true);
         }
         else                                           //UnPaused
         {
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
-            pauseOBJ.SetActive(false);
+
+            _pauseOBJ.SetActive(false);
 
         }
     }

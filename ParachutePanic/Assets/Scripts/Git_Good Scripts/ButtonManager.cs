@@ -18,14 +18,14 @@ public class ButtonManager : MonoBehaviour
     {
         int rnd = Random.Range(0, Buttons.Length);
 
-        Buttons[rnd].toggleButton(false);
+        Buttons[rnd].ToggleButton(false);
     }
 
     public void EnableAllButtons()
     {
         for (int i = 0; i < Buttons.Length; i++)
         {
-            Buttons[i].toggleButton(false);
+            Buttons[i].ToggleButton(false);
         }
     }
 

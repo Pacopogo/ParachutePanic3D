@@ -126,6 +126,7 @@ public class GameEventManager : MonoBehaviour
     public void EndGame()
     {
         _isPlaying = false;
+
         ClearGame();
         return;
     }

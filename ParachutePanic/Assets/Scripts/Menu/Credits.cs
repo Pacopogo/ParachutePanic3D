@@ -5,7 +5,7 @@ using UnityEngine;
 public class Credits : MonoBehaviour
 {
     //Button event that sends you to the linked website
-    public void sendToWebsite(string link)
+    public void SendToWebsite(string link)
     {
         System.Diagnostics.Process.Start(link);
     }

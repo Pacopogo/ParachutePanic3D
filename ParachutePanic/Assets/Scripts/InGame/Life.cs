@@ -4,55 +4,61 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    [SerializeField] private bool godMode = false;
+    [SerializeField] private bool _godMode = false;
 
-    [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameEventManager gameMaster;
-    [SerializeField] private GameObject[] lifeLights;
-    [SerializeField] private Material[] materials;
-    private MeshRenderer currentMesh;
-    private AudioSource audioSoruce;
-    private SceneLoader sceneLoader;
+    [Header("Components")]
+    [SerializeField] private GameEventManager _gameMaster;
 
-    public int currentLife = 3;
+    [Header("Gameobjects")]
+    [SerializeField] private GameObject _gameOverUI;
+    [SerializeField] private GameObject[] _lifeLights;
+
+    [Header("Materials")]
+    [SerializeField] private Material[] _materials;
+
+    private MeshRenderer _currentMesh;
+    private AudioSource _audioSoruce;
+    private SceneLoader _sceneLoader;
+
+    public int CurrentLife = 3;
 
     private void Start()
     {
-        audioSoruce = GetComponent<AudioSource>();
-        sceneLoader = GetComponent<SceneLoader>();
+        _audioSoruce = GetComponent<AudioSource>();
+        _sceneLoader = GetComponent<SceneLoader>();
 
-        if (gameMaster == null)
+        if (_gameMaster == null)
         {
-            gameMaster = FindObjectOfType<GameEventManager>();
+            _gameMaster = FindObjectOfType<GameEventManager>();
         }
     }
 
     //function to remove the lifes between the max amount and 0
     public void LoseLife()
     {
-        if (godMode)
+        if (_godMode)
             return;
 
-        currentLife--;
-        currentLife = Mathf.Clamp(currentLife, 0, lifeLights.Length);
+        CurrentLife--;
+        CurrentLife = Mathf.Clamp(CurrentLife, 0, _lifeLights.Length);
 
-        for (int i = 0; i < lifeLights.Length; i++)
+        for (int i = 0; i < _lifeLights.Length; i++)
         {
             //when lost a life change material to read
-            currentMesh = lifeLights[i].GetComponent<MeshRenderer>();
-            if (currentLife <= i)
+            _currentMesh = _lifeLights[i].GetComponent<MeshRenderer>();
+            if (CurrentLife <= i)
             {
-                currentMesh.material = materials[1];
+                _currentMesh.material = _materials[1];
             }
             else
             {
-                currentMesh.material = materials[0];
+                _currentMesh.material = _materials[0];
 
             }
         }
 
         //when life hit zero you die
-        if (currentLife <= 0)
+        if (CurrentLife <= 0)
             StartCoroutine(YouDied());
 
     }
@@ -60,11 +66,16 @@ public class Life : MonoBehaviour
     //function to call all final functions to show you are dead
     private IEnumerator YouDied()
     {
+
         yield return new WaitForSeconds(1);
-        gameMaster.EndGame();
-        audioSoruce.Play();
-        gameOverUI.SetActive(true);
-        yield return new WaitForSeconds(audioSoruce.clip.length);
-        sceneLoader.LoadSceneIndex(0);
+
+        _gameMaster.EndGame();
+        _audioSoruce.Play();
+        _gameOverUI.SetActive(true);
+
+        yield return new WaitForSeconds(_audioSoruce.clip.length);
+
+        _sceneLoader.LoadSceneIndex(0);
+    
     }
 }

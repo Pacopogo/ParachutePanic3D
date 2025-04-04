@@ -5004,13 +5004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96810e772ab9efe48a27b3bfb74b03c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMaster: {fileID: 0}
-  trashObj: {fileID: 4580479002144963226, guid: 3dce68190432ee34bb1bb5133d126054, type: 3}
-  dropTrans: {fileID: 1115498412961843835}
-  particle: {fileID: 1542441041}
-  moveRange: {x: -2, y: 15}
-  speed: 2
-  audioSource: {fileID: 7530483188899247817}
+  _gameMaster: {fileID: 0}
+  _dropTrans: {fileID: 1115498412961843835}
+  _particle: {fileID: 1542441041}
+  _moveRange: {x: -2, y: 15}
+  _speed: 2
+  _audioSource: {fileID: 7530483188899247817}
 --- !u!82 &7530483188899247817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16941,7 +16940,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1573
+  m_VersionIndex: 1606
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

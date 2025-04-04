@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerSettings", order = 1)]
 public class playerSettings : ScriptableObject
 {
-    public float mouseSensitivity;
-    public float audioVolume;
+    public float MouseSensitivity;
+    public float AudioVolume;
 }

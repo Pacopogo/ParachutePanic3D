@@ -13,11 +13,11 @@ public class PacoButton : MonoBehaviour
         Off,
     }
 
-    [SerializeField] private ButtonState state;
+    [SerializeField] private ButtonState _state;
 
-    [SerializeField] private Material[] buttonMaterial = new Material[3];
-    [SerializeField] private UnityEvent onClick;
-    [SerializeField] private UnityEvent onRelease;
+    [SerializeField] private Material[] _buttonMaterial = new Material[3];
+    [SerializeField] private UnityEvent _onClick;
+    [SerializeField] private UnityEvent _onRelease;
 
     private MeshRenderer buttonMesh;
 
@@ -29,17 +29,17 @@ public class PacoButton : MonoBehaviour
     private void Update()
     {
         //the state set materials accordingly to what they are
-        switch (state)
+        switch (_state)
         {
             case ButtonState.On:
-                buttonMesh.material = buttonMaterial[0];
+                buttonMesh.material = _buttonMaterial[0];
                 break;
             case ButtonState.Pressed:
-                buttonMesh.material = buttonMaterial[1];
+                buttonMesh.material = _buttonMaterial[1];
 
                 break;
             case ButtonState.Off:
-                buttonMesh.material = buttonMaterial[2];
+                buttonMesh.material = _buttonMaterial[2];
 
                 break;
             default:
@@ -50,33 +50,33 @@ public class PacoButton : MonoBehaviour
     //when pressed use the onClick Event
     public void OnPressed()
     {
-        if (state == ButtonState.Off)
+        if (_state == ButtonState.Off)
             return;
 
-        onClick?.Invoke();
-        state = ButtonState.Pressed;
+        _onClick?.Invoke();
+        _state = ButtonState.Pressed;
     }
 
     //when released use the onRelease Event
     public void OnRelease()
     {
-        if (state == ButtonState.Off)
+        if (_state == ButtonState.Off)
             return;
 
-        onRelease?.Invoke();
-        state = ButtonState.On;
+        _onRelease?.Invoke();
+        _state = ButtonState.On;
     }
 
     //Toggle button for the game manager to disable them as a random event
-    public void toggleButton(bool active)
+    public void ToggleButton(bool active)
     {
         if (active)
         {
-            state = ButtonState.On;
+            _state = ButtonState.On;
         }
         else
         {
-            state = ButtonState.Off;
+            _state = ButtonState.Off;
         }
     }
 }

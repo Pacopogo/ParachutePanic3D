@@ -7,26 +7,26 @@ using TMPro;
 
 public class AudioSettings : MonoBehaviour
 {
-    [SerializeField] private playerSettings playerSettings;     //The global player settings
+    [SerializeField] private playerSettings _playerSettings;
 
     [Header("Audio")]
-    [SerializeField] private Slider audioSlide;                 //UI element slider
-    [SerializeField] private AudioMixer audioMixer;             //The Mixer for all audio
-    [SerializeField] private TMP_Text audioText;                //UI Text element
+    [SerializeField] private Slider _audioSlide;
+    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private TMP_Text _audioText;
 
     private void Start()
     {
-        audioSlide.value = playerSettings.audioVolume;                  //Set the slider to the correct audio
-        audioMixer.SetFloat("game", audioSlide.value);                  //Set tha audio mixer correct
-        audioText.text = (audioSlide.value + 80).ToString("f0") + "%";  //change the text element
+        _audioSlide.value = _playerSettings.AudioVolume;
+        _audioMixer.SetFloat("game", _audioSlide.value);
+        
         //The audio mixer goes as low as -80 so I do +80 to display it as 0 instead as the lowest volume
+        _audioText.text = (_audioSlide.value + 80).ToString("f0") + "%";
     }
-
-    //change the audio on slider input
-    public void changeGlobalAudio()
+    public void ChangeGlobalAudio()
     {
-        audioMixer.SetFloat("game", audioSlide.value);
-        playerSettings.audioVolume = audioSlide.value;                  //Changes the global audio setting
-        audioText.text = (audioSlide.value + 80).ToString("f0") + "%";
+        _audioMixer.SetFloat("game", _audioSlide.value);
+        _playerSettings.AudioVolume = _audioSlide.value;
+
+        _audioText.text = (_audioSlide.value + 80).ToString("f0") + "%";
     }
 }

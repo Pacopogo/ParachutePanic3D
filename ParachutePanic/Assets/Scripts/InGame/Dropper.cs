@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
-    [SerializeField] private GameEventManager gameMaster;       //Game master component
-    [SerializeField] private Transform dropTrans;               //The Pivot point to drop the trash from
-    [SerializeField] private ParticleSystem particle;           //The Unique particles for dropping the trash
+    [SerializeField] private GameEventManager _gameMaster;
+    [SerializeField] private Transform _dropTrans;
+    [SerializeField] private ParticleSystem _particle;
 
     [Header("Settings")]
-    [SerializeField] private Vector2 moveRange;                 //The range the Droppers are allowed to move between
-    [SerializeField] private float speed = 2;                   //The movement Speed
-    private bool dir = true;                                    //What direction they move
+    [SerializeField] private Vector2 _moveRange;
+    [SerializeField] private float _speed = 2;
+    private bool _dir = true;
 
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource _audioSource;
 
     private void FixedUpdate()
     {
@@ -23,18 +23,18 @@ public class Dropper : MonoBehaviour
     //The dropper movement that shifts everytime it has reached its max/min range
     private void MoveDropper()
     {
-        if (dir)
+        if (_dir)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * _speed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector3.right * -speed * Time.deltaTime);
+            transform.Translate(Vector3.right * -_speed * Time.deltaTime);
         }
 
-        if (transform.position.x >= moveRange.y || transform.position.x <= moveRange.x)
+        if (transform.position.x >= _moveRange.y || transform.position.x <= _moveRange.x)
         {
-            dir = !dir;
+            _dir = !_dir;
         }
     }
 
@@ -42,8 +42,8 @@ public class Dropper : MonoBehaviour
     {
         int rnd = Random.Range(0, 3);
 
-        audioSource.Play();
-        particle.Play();
+        _audioSource.Play();
+        _particle.Play();
 
         //Make the trash and add it to the trash list to limit the amount that can be dropped
         GameObject trash = Objectpool.Instance.GetSpesificPool(rnd);
@@ -54,8 +54,8 @@ public class Dropper : MonoBehaviour
             trash = Objectpool.Instance.GetSpesificPool(rnd);
         }
 
-        trash.transform.position = dropTrans.transform.position;
-        trash.transform.rotation = dropTrans.transform.rotation;
+        trash.transform.position = _dropTrans.transform.position;
+        trash.transform.rotation = _dropTrans.transform.rotation;
 
         trash.SetActive(true);
 

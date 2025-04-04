@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8c688e16222d9439c70ee902b6ea42, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  mouseSensitivity: 3
-  audioVolume: -15
+  MouseSensitivity: 3
+  AudioVolume: -15

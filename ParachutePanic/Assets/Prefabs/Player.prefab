@@ -245,7 +245,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6568025277036004044}
         m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
-        m_MethodName: changeGlobalAudio
+        m_MethodName: ChangeGlobalAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 539828486}
   - component: {fileID: 539828488}
   - component: {fileID: 539828487}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 630221999}
   - component: {fileID: 630222001}
   - component: {fileID: 630222000}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 722306544}
   - component: {fileID: 722306546}
   - component: {fileID: 722306545}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 924165754}
   - component: {fileID: 924165753}
   - component: {fileID: 924165752}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 989897827}
   - component: {fileID: 989897829}
   - component: {fileID: 989897828}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1467,7 +1467,7 @@ GameObject:
   - component: {fileID: 1195567183}
   - component: {fileID: 1195567182}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: AudioText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2015,7 +2015,7 @@ GameObject:
   - component: {fileID: 1432256959}
   - component: {fileID: 1432256961}
   - component: {fileID: 1432256960}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Game Title (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2379,7 +2379,7 @@ GameObject:
   - component: {fileID: 1692972804}
   - component: {fileID: 1692972803}
   - component: {fileID: 1692972802}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ControlsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2771,7 +2771,7 @@ GameObject:
   - component: {fileID: 1842509689}
   - component: {fileID: 1842509691}
   - component: {fileID: 1842509690}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2906,7 +2906,7 @@ GameObject:
   - component: {fileID: 1987960280}
   - component: {fileID: 1987960282}
   - component: {fileID: 1987960281}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3267,7 +3267,7 @@ GameObject:
   - component: {fileID: 2068825968359649814}
   - component: {fileID: 6608156457997872453}
   - component: {fileID: 5241767321808362008}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3403,7 +3403,7 @@ GameObject:
   - component: {fileID: 1921305576537800403}
   - component: {fileID: 9005489922772961327}
   - component: {fileID: 8577744716289579211}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3503,7 +3503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1109629701759728718}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3545,7 +3545,7 @@ GameObject:
   - component: {fileID: 3810264039436815572}
   - component: {fileID: 7030860136715440241}
   - component: {fileID: 2307359991514213975}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3676,7 +3676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6343185638624959251}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3714,7 +3714,7 @@ GameObject:
   - component: {fileID: 6343185638914815700}
   - component: {fileID: 6343185638914815698}
   - component: {fileID: 6343185638914815699}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3788,7 +3788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6343185639056703021}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ToolTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3935,7 @@ GameObject:
   - component: {fileID: 6343185639579485431}
   - component: {fileID: 6343185639579485429}
   - component: {fileID: 6343185639579485430}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4012,7 +4012,7 @@ GameObject:
   - component: {fileID: 6343185639626987868}
   - component: {fileID: 6343185639626987866}
   - component: {fileID: 6343185639626987867}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4154,9 +4154,9 @@ GameObject:
   - component: {fileID: 8112040164505896617}
   - component: {fileID: 6568025277036004044}
   - component: {fileID: 6343185639564381047}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4289,7 +4289,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6343185639897669717}
         m_TargetAssemblyTypeName: playerMovement, Assembly-CSharp
-        m_MethodName: horizontalMove
+        m_MethodName: HorizontalMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4305,7 +4305,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6343185639897669717}
         m_TargetAssemblyTypeName: playerMovement, Assembly-CSharp
-        m_MethodName: playerlook
+        m_MethodName: Playerlook
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4321,7 +4321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6343185639897669717}
         m_TargetAssemblyTypeName: playerMovement, Assembly-CSharp
-        m_MethodName: playerButton
+        m_MethodName: PlayerButton
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4366,15 +4366,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ddf744113ecb846bd16117c6424db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
-  wSpeed: 10
-  cinneVirtual: {fileID: 6343185640342052809}
-  camObj: {fileID: 6343185640126857367}
-  tooltipObj: {fileID: 6343185639056703022}
-  interactLayer:
+  _playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
+  _speed: 10
+  _camObj: {fileID: 6343185640126857367}
+  _cinneVirtual: {fileID: 6343185640342052809}
+  _tooltipObj: {fileID: 6343185639056703022}
+  _interactLayer:
     serializedVersion: 2
     m_Bits: 64
-  maxDistance: 6
+  _maxDistance: 6
 --- !u!114 &8112040164505896617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4387,7 +4387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b52b85f06724d40af1b4ad3251b283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseOBJ: {fileID: 1677256929086926438}
+  _pauseOBJ: {fileID: 1677256929086926438}
 --- !u!114 &6568025277036004044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4400,10 +4400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fecca64be7acbc45abdb7e9517484d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
-  audioSlide: {fileID: 262131719}
-  audioMixer: {fileID: 24100000, guid: df7f28f3364ac834ab9b30a938c3c7e7, type: 2}
-  audioText: {fileID: 1195567182}
+  _playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
+  _audioSlide: {fileID: 262131719}
+  _audioMixer: {fileID: 24100000, guid: df7f28f3364ac834ab9b30a938c3c7e7, type: 2}
+  _audioText: {fileID: 1195567182}
 --- !u!114 &6343185639564381047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4673,7 +4673,7 @@ GameObject:
   - component: {fileID: 6343185640219778085}
   - component: {fileID: 6343185640219778086}
   - component: {fileID: 6343185640219778087}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

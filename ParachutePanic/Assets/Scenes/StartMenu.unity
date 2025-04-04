@@ -278,11 +278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e327bfa3923a56a4bbc53a92df3a2443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 0}
-  introToggle: {fileID: 2122789611}
-  playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
-  sensSlider: {fileID: 1503086855}
-  mouseSensText: {fileID: 1441939156}
+  _sceneLoader: {fileID: 10532981}
+  _introToggle: {fileID: 2122789611}
+  _playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
+  _sensSlider: {fileID: 1503086855}
+  _mouseSensText: {fileID: 1441939156}
 --- !u!114 &10532981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fecca64be7acbc45abdb7e9517484d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
-  audioSlide: {fileID: 1337528094}
-  audioMixer: {fileID: 24100000, guid: df7f28f3364ac834ab9b30a938c3c7e7, type: 2}
-  audioText: {fileID: 832265045}
+  _playerSettings: {fileID: 11400000, guid: 0014264e4c7223248881e6aa0421c899, type: 2}
+  _audioSlide: {fileID: 1337528094}
+  _audioMixer: {fileID: 24100000, guid: df7f28f3364ac834ab9b30a938c3c7e7, type: 2}
+  _audioText: {fileID: 832265045}
 --- !u!1 &26198032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,7 +3229,7 @@ GameObject:
   - component: {fileID: 832265046}
   - component: {fileID: 832265045}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: AudioText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4375,7 +4375,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672791923}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
-        m_MethodName: sendToWebsite
+        m_MethodName: SendToWebsite
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10050,7 +10050,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 196695314}
   m_FillRect: {fileID: 196695313}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -10869,7 +10869,7 @@ GameObject:
   - component: {fileID: 1441939157}
   - component: {fileID: 1441939156}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: MouseText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11118,7 +11118,7 @@ GameObject:
   - component: {fileID: 1503086854}
   - component: {fileID: 1503086855}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: MouseSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11187,7 +11187,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 420299004}
   m_FillRect: {fileID: 420299003}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -11200,7 +11200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 10532980}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: changeMouseSens
+        m_MethodName: ChangeMouseSens
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12506,7 +12506,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672791923}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
-        m_MethodName: sendToWebsite
+        m_MethodName: SendToWebsite
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13375,7 +13375,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672791923}
         m_TargetAssemblyTypeName: Credits, Assembly-CSharp
-        m_MethodName: sendToWebsite
+        m_MethodName: SendToWebsite
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

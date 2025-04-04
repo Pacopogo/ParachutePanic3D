@@ -10,42 +10,45 @@ using Cinemachine;
 [RequireComponent(typeof(PlayerInput))]
 public class playerMovement : MonoBehaviour
 {
-    [SerializeField] private playerSettings playerSettings;
+    [SerializeField] private playerSettings _playerSettings;
 
-    [Header("Settings")]                                                //these are the settings for the player
+    [Header("Settings")]
     [Tooltip("Player Movement speed")]
-    [SerializeField] private float wSpeed = 6;                          //walking speed
-    private float rSpeed;                                               //rotation speed
+    [SerializeField] private float _speed = 10;
+    
+    private float _rotationSpeed;
 
     [Header("Camera component")]
-    [SerializeField] private CinemachineVirtualCamera cinneVirtual;     //the vertiual camera
-    private CinemachinePOV Pov;                                         //The vertiual camera compontent stored
+    [SerializeField] private GameObject _camObj;
+    [SerializeField] private CinemachineVirtualCamera _cinneVirtual;
+    
+    private CinemachinePOV _pov;
 
-    private Vector2 newPlayerVec;                                       //the new given horizontal vector for the player
-    private Vector2 rAxis;                                              //the rotation axis for the player
+    private Vector2 _newPlayerVec;
+    private Vector2 _rotationAxis;
 
     [Header("Interactable")]
-    [SerializeField] private GameObject camObj;                         //the camera Object
-    [SerializeField] private GameObject tooltipObj;                     //the visualization for the interaction button
-    [SerializeField] private LayerMask interactLayer;                   //Interaction layer
-    private RaycastHit hit;
-    [SerializeField] private float maxDistance;                         //The distance the player has to be from a interactable to interact with it
-    private PacoButton pacoButton;
+    [SerializeField] private GameObject _tooltipObj;
+    [SerializeField] private LayerMask _interactLayer;
+    [SerializeField] private float _maxDistance = 6;
+
+    private PacoButton _pacoButton;
+    private RaycastHit _hit;
 
     void Start()
     {
-        rSpeed = playerSettings.mouseSensitivity;
+        _rotationSpeed = _playerSettings.MouseSensitivity;
 
-        cinemachineSetup();
+        CinemachineSetup();
     }
 
-    private void cinemachineSetup()
+    private void CinemachineSetup()
     {
         //This sets up the Vertical camera clamp using Cinnemachine
         //you have to manually add the componant to the cinnemachine to adjust its settings
-        Pov = cinneVirtual.AddCinemachineComponent<CinemachinePOV>();           
-        Pov.m_HorizontalAxis.m_MaxSpeed = 0;
-        Pov.m_VerticalAxis.m_SpeedMode = AxisState.SpeedMode.InputValueGain;
+        _pov = _cinneVirtual.AddCinemachineComponent<CinemachinePOV>();           
+        _pov.m_HorizontalAxis.m_MaxSpeed = 0;
+        _pov.m_VerticalAxis.m_SpeedMode = AxisState.SpeedMode.InputValueGain;
         
         //Lock the Cursor the screen
         Cursor.lockState = CursorLockMode.Locked;
@@ -53,19 +56,19 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Pov.m_VerticalAxis.m_MaxSpeed = rSpeed;
+        _pov.m_VerticalAxis.m_MaxSpeed = _rotationSpeed;
 
-        playerMove();           //The Movement logic 
-        playerRot();            //The Player Horizontal Rotation logic 
-        tooltipCheck();         //The tooltip logic
+        PlayerMove();           //The Movement logic 
+        PlayerRot();            //The Player Horizontal Rotation logic 
+        ToolTipCheck();         //The tooltip logic
 
     }
 
-    private void playerMove()
+    private void PlayerMove()
     {
         //The input multiplied by Speed and the fixed delta time to give the new direction
-        float playerForward = newPlayerVec.y * wSpeed * Time.fixedDeltaTime;
-        float playerRight = newPlayerVec.x * wSpeed * Time.fixedDeltaTime;
+        float playerForward = _newPlayerVec.y * _speed * Time.fixedDeltaTime;
+        float playerRight = _newPlayerVec.x * _speed * Time.fixedDeltaTime;
 
         //Forwad and Backwards movement
         transform.Translate(Vector3.forward * playerForward);
@@ -74,62 +77,64 @@ public class playerMovement : MonoBehaviour
         transform.Translate(Vector3.right * playerRight);
     }
 
-    private void playerRot()
+    //Player rotation and camera rotation
+    private void PlayerRot()
     {
-        float lookX = rAxis.x * (rSpeed * 1.2f) * Time.fixedDeltaTime;
+        float lookX = _rotationAxis.x * (_rotationSpeed * 1.2f) * Time.fixedDeltaTime;
         transform.Rotate(0, lookX, 0);
     }
 
     //input value readings
     #region inputEvents
-    public void horizontalMove(InputAction.CallbackContext input) {
-
-        newPlayerVec = input.ReadValue<Vector2>();
-    }
-
-    public void playerlook(InputAction.CallbackContext input)
+    public void HorizontalMove(InputAction.CallbackContext input) 
     {
-        rAxis = input.ReadValue<Vector2>();
+        _newPlayerVec = input.ReadValue<Vector2>();
     }
 
-    public void playerButton(InputAction.CallbackContext input) {
+    public void Playerlook(InputAction.CallbackContext input)
+    {
+        _rotationAxis = input.ReadValue<Vector2>();
+    }
+
+    public void PlayerButton(InputAction.CallbackContext input) 
+    {
         //check if it reaches a interactable
-        if (Physics.Raycast(camObj.transform.position, camObj.transform.forward, out hit, maxDistance, interactLayer))
+        if (Physics.Raycast(_camObj.transform.position, _camObj.transform.forward, out _hit, _maxDistance, _interactLayer))
         {
             //checks if it has a Pacobutton
-            if (hit.collider.GetComponent<PacoButton>())
+            if (_hit.collider.GetComponent<PacoButton>())
             {
                 //play correct event on correct input release or press
                 if(input.performed)
                 {
-                    pacoButton = hit.collider.GetComponent<PacoButton>();   //Store Button into pacoButton
-                    pacoButton.OnPressed();
+                    _pacoButton = _hit.collider.GetComponent<PacoButton>();   //Store Button into pacoButton
+                    _pacoButton.OnPressed();
                 }
-                else if(input.canceled && pacoButton != null)
+                else if(input.canceled && _pacoButton != null)
                 {
-                    pacoButton.OnRelease();
-                    pacoButton = null;                                      //Remove stored Button
+                    _pacoButton.OnRelease();
+                    _pacoButton = null;                                      //Remove stored Button
                 }
             }
         }
-        else if (input.canceled && pacoButton != null)
+        else if (input.canceled && _pacoButton != null)
         {
-            pacoButton.OnRelease();
-            pacoButton = null;
+            _pacoButton.OnRelease();
+            _pacoButton = null;
         }
     }
     #endregion
 
-    private void tooltipCheck()
+    private void ToolTipCheck()
     {
         //if you hover over a interactable it will show you the interact UI
-        if (Physics.Raycast(camObj.transform.position, camObj.transform.forward, out hit, maxDistance, interactLayer))
+        if (Physics.Raycast(_camObj.transform.position, _camObj.transform.forward, out _hit, _maxDistance, _interactLayer))
         {
-            tooltipObj.SetActive(true);
+            _tooltipObj.SetActive(true);
         }
         else
         {
-            tooltipObj.SetActive(false);
+            _tooltipObj.SetActive(false);
         }
     }
 }

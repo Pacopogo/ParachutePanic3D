@@ -5,22 +5,24 @@ using UnityEngine.Events;
 
 public class OnCollisionEvent : MonoBehaviour
 {
-    [SerializeField] private string objTag = "Player";
-    [SerializeField] private UnityEvent OnEnter;
-    [SerializeField] private UnityEvent OnExit;
+    [SerializeField] private string _objTag = "Trash";
+    [SerializeField] private UnityEvent _onEnter;
+    [SerializeField] private UnityEvent _onExit;
 
     //Unity event call when player or a assigned tag colides 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag(objTag))
+        if (!collision.gameObject.CompareTag(_objTag))
             return;
-        OnEnter?.Invoke();
+
+        _onEnter?.Invoke();
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (!collision.gameObject.CompareTag(objTag))
+        if (!collision.gameObject.CompareTag(_objTag))
             return;
-        OnExit?.Invoke();
+
+        _onExit?.Invoke();
     }
 }

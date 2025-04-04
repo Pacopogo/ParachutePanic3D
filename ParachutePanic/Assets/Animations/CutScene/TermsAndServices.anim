@@ -258,7 +258,7 @@ AnimationClip:
     intParameter: 3
     messageOptions: 0
   - time: 3.9666667
-    functionName: pauseBackgroundMusic
+    functionName: PauseBackgroundMusic
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

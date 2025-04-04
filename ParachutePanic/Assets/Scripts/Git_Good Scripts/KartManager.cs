@@ -17,15 +17,15 @@ public class KartManager : MonoBehaviour
     public void BreakRandomKart()
     {
         int rnd = Random.Range(0, _karts.Length);
-        _karts[rnd].toggleActiveKart(false);
+        _karts[rnd].ToggleActiveKart(false);
     }
-    public void BreakKartIndex(int index) => _karts[index].toggleActiveKart(false);
+    public void BreakKartIndex(int index) => _karts[index].ToggleActiveKart(false);
 
     public void RepairAllKarts()
     {
         for (int i = 0; i < _karts.Length; i++)
         {
-            _karts[i].toggleActiveKart(true);
+            _karts[i].ToggleActiveKart(true);
         }
     }
 

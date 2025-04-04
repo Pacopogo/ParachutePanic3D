@@ -7,18 +7,18 @@ using UnityEngine;
 public class audioPlayer : MonoBehaviour
 {
     [Header("Voice Lines")]
-    [SerializeField] private VoiceLines voiceLines;             //list of voice lines or audio bites
-    AudioSource audioSource;                                    //the audio player for the lines
+    [SerializeField] private VoiceLines _voiceLines;             //list of voice lines or audio bites
+    private AudioSource _audioSource;                                    //the audio player for the lines
 
     [Header("Background Audio")]
-    [SerializeField] private AudioSource backgroundPlayer;      //Background music component
-    private bool isBGplaying;                                   //The toggle if it is allowed to play
+    [SerializeField] private AudioSource _backgroundPlayer;      //Background music component
+    private bool _isBGplaying;                                   //The toggle if it is allowed to play
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
 
-        isBGplaying = backgroundPlayer.isPlaying;
+        _isBGplaying = _backgroundPlayer.isPlaying;
     }
 
     //Call Voice line and play it
@@ -30,22 +30,22 @@ public class audioPlayer : MonoBehaviour
     //It is IEnumerator for future expention so it will wait until its done talked until the next line
     private IEnumerator CallAudioClip(int i)
     {
-        audioSource.clip = voiceLines.line[i];
-        audioSource.Play();
+        _audioSource.clip = _voiceLines.line[i];
+        _audioSource.Play();
         yield return new WaitForEndOfFrame();
     }
 
     //Function to Pause the background during the intro cutscene when terms and services are asked
-    public void pauseBackgroundMusic()
+    public void PauseBackgroundMusic()
     {
-        if (isBGplaying)
+        if (_isBGplaying)
         {
-            backgroundPlayer.Pause();
-            isBGplaying = false;
+            _backgroundPlayer.Pause();
+            _isBGplaying = false;
             return;
         }
-        backgroundPlayer.UnPause();
-        isBGplaying = true;
+        _backgroundPlayer.UnPause();
+        _isBGplaying = true;
 
     }
 }

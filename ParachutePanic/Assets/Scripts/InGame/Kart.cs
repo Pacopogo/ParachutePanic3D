@@ -5,48 +5,48 @@ using UnityEngine;
 public class Kart : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private Vector2 MoveRange;
-    [SerializeField] private float speed = 6;
-    private float direction;
-    private bool isMoving = false;
+    [SerializeField] private Vector2 _moveRange = new Vector2(-1, 15);
+    [SerializeField] private float _speed = 6;
+    private float _direction;
+    private bool _isMoving = false;
 
-    [SerializeField] private ParticleSystem particle;
-    public bool isOn = true;
+    [SerializeField] private ParticleSystem _brokenParticles;
+    public bool _isOn = true;
 
     private void FixedUpdate()
     {
         //check if it is broken or not and allowed to move
-        if (!isMoving || !isOn)
+        if (!_isMoving || !_isOn)
             return;
 
         //move with given direction
-        float newXpos = transform.position.x + direction * speed * Time.fixedDeltaTime;
-        newXpos = Mathf.Clamp(newXpos, MoveRange.x, MoveRange.y);
+        float newXpos = transform.position.x + _direction * _speed * Time.fixedDeltaTime;
+        newXpos = Mathf.Clamp(newXpos, _moveRange.x, _moveRange.y);
         transform.position = new Vector3(newXpos, transform.position.y, transform.position.z);
 
     }
     public void MoveKart(float dir)
     {
-        direction = dir;
+        _direction = dir;
         return;
     }
-    public void toggleKart(bool move)
+    public void ToggleKart(bool move)
     {
-        isMoving = move;
+        _isMoving = move;
         return;
     }
 
     //the function to break the kart with appropriate particles
-    public void toggleActiveKart(bool active)
+    public void ToggleActiveKart(bool active)
     {
-        isOn = active;
-        if (isOn)
+        _isOn = active;
+        if (_isOn)
         {
-            particle.Stop();
+            _brokenParticles.Stop();
         }
         else
         {
-            particle.Play();
+            _brokenParticles.Play();
         }
         return;
     }
