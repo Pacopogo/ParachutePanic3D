@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 //simple ObjectPool for the trash shoot
@@ -134,9 +133,13 @@ public class Objectpool : MonoBehaviour
 
     public void ClearObjects()
     {
-        for (int i = 0; i < PoolList.Count; i++)
+
+        foreach (GameObject obj in PoolList)
         {
-            PoolList[i].SetActive(false);
+            if(!obj.activeInHierarchy)
+                continue;
+
+            obj.SetActive(false);
         }
         return;
     }

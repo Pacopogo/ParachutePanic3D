@@ -42,7 +42,6 @@ public class Trash : MonoBehaviour
     private void HitKart()
     {
         scoreboard.startAddScore();
-        gameManager.SetAmountDropped(-1);
 
         gameObject.SetActive(false);
     }
@@ -50,7 +49,6 @@ public class Trash : MonoBehaviour
     private void HitGround()
     {
         life.LoseLife();
-        gameManager.SetAmountDropped(-1);
 
         scoreboard.startMissedTrash();
 

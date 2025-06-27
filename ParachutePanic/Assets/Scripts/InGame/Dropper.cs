@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
-    [SerializeField] private GameEventManager _gameMaster;
     [SerializeField] private Transform _dropTrans;
     [SerializeField] private ParticleSystem _particle;
 
