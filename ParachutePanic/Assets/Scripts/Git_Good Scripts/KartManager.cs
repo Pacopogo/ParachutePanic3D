@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KartManager : MonoBehaviour
+public class KartManager : MonoBehaviour, IManager
 {
     [SerializeField] private Kart[] _karts;
 

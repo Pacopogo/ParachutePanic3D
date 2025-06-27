@@ -7,7 +7,7 @@ public class Life : MonoBehaviour
     [SerializeField] private bool _godMode = false;
 
     [Header("Components")]
-    [SerializeField] private GameEventManager _gameMaster;
+    [SerializeField] private GameObject _gameMasterObject;
 
     [Header("Gameobjects")]
     [SerializeField] private GameObject _gameOverUI;
@@ -26,11 +26,6 @@ public class Life : MonoBehaviour
     {
         _audioSoruce = GetComponent<AudioSource>();
         _sceneLoader = GetComponent<SceneLoader>();
-
-        if (_gameMaster == null)
-        {
-            _gameMaster = FindObjectOfType<GameEventManager>();
-        }
     }
 
     //function to remove the lifes between the max amount and 0
@@ -69,7 +64,10 @@ public class Life : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        _gameMaster.EndGame();
+        //disable managers and clear active objects in scene
+        _gameMasterObject.SetActive(false);
+        Objectpool.instance.ClearObjects();
+
         _audioSoruce.Play();
         _gameOverUI.SetActive(true);
 

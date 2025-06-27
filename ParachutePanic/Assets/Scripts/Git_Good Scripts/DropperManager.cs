@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropperManager : MonoBehaviour
+public class DropperManager : MonoBehaviour, IManager
 {
     [SerializeField] private Dropper[] _droppers;
 
