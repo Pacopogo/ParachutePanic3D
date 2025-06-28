@@ -8118,8 +8118,8 @@ MonoBehaviour:
   - {fileID: 112654037}
   - {fileID: 1181397267}
   - {fileID: 1570740467}
-  _startTimer: 15
-  _timer: {x: 10, y: 15}
+  _startTimer: 40
+  _timer: {x: 15, y: 40}
   _audioPlayer: {fileID: 1563584387}
   _breakClip: {fileID: 8300000, guid: ddcd91924f8f8c442afc0a5531db8b2d, type: 3}
 --- !u!114 &440094330
@@ -8134,8 +8134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63077ab75eb24f6409f360b4a33233d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startTime: 10
-  _timerRange: {x: 8, y: 12}
+  _startTime: 20
+  _timerRange: {x: 12, y: 20}
   _audioPlayer: {fileID: 1320605622}
   _clip: {fileID: 8300000, guid: 5b1b90bde02ae6a459fac4edd0e7c0c3, type: 3}
   Buttons:
@@ -8162,7 +8162,7 @@ MonoBehaviour:
   - {fileID: 1493932155}
   - {fileID: 1666670434}
   _startTime: 5
-  _timerRange: {x: 3, y: 5}
+  _timerRange: {x: 5, y: 12}
   _maxDrops: 2
 --- !u!43 &452882910
 Mesh:
